@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,99 +21,132 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family:Arial, sans-serif;
     overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 
 .loader{
     text-align:center;
-    animation: sair 1s ease forwards;
+    animation:saida 1s ease forwards;
     animation-delay:3s;
 }
 
 
+/* Símbolo PMX */
+
 .logo svg{
-    width:180px;
+    width:220px;
     height:180px;
     animation:
-    aparecer 1.5s ease,
+    entrada 1.5s ease,
     brilho 2s infinite alternate;
 }
 
 
+/* Frase */
+
 .frase{
-    color:#fff;
-    margin-top:20px;
+    margin-top:25px;
+    color:white;
     font-size:18px;
     letter-spacing:6px;
     opacity:0;
-    animation:frase 1.5s forwards;
+    animation:aparecer 1.5s forwards;
     animation-delay:1s;
 }
 
 
-@keyframes aparecer{
+
+/* Animações */
+
+@keyframes entrada{
+
     from{
         opacity:0;
-        transform:scale(.5);
+        transform:scale(.4);
     }
+
     to{
         opacity:1;
         transform:scale(1);
     }
+
 }
 
 
 @keyframes brilho{
+
     from{
         filter:drop-shadow(0 0 5px #d4af37);
     }
+
     to{
-        filter:drop-shadow(0 0 30px #d4af37);
+        filter:drop-shadow(0 0 35px #d4af37);
     }
+
 }
 
 
-@keyframes frase{
+@keyframes aparecer{
+
     to{
         opacity:1;
     }
+
 }
 
 
-@keyframes sair{
+@keyframes saida{
+
     to{
         opacity:0;
         transform:scale(1.2);
     }
+
 }
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="loader">
 
+
 <div class="logo">
 
-<svg viewBox="0 0 200 200">
+<svg viewBox="0 0 300 200">
 
-<circle cx="100" cy="100" r="90"
+<!-- P -->
+<path d="M40 160 V40 H90 C130 40 130 95 90 95 H40"
 fill="none"
 stroke="#d4af37"
-stroke-width="4"/>
+stroke-width="15"
+stroke-linecap="round"
+stroke-linejoin="round"/>
 
-<text x="100" y="125"
-text-anchor="middle"
-font-size="80"
-font-weight="bold"
-font-family="Arial"
-fill="#d4af37">
-PMX
-</text>
+
+<!-- M -->
+<path d="M115 160 V40 L160 100 L205 40 V160"
+fill="none"
+stroke="#d4af37"
+stroke-width="15"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+
+<!-- X -->
+<path d="M230 50 L270 150 M270 50 L230 150"
+fill="none"
+stroke="#d4af37"
+stroke-width="15"
+stroke-linecap="round"/>
+
 
 </svg>
 
@@ -125,6 +159,7 @@ A new standard
 
 
 </div>
+
 
 </body>
 </html>
