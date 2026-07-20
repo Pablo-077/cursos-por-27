@@ -8,130 +8,123 @@
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background: #000;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-/* Tela de carregamento */
-
-.loader {
-    text-align: center;
-    animation: desaparecer 1s ease forwards;
-    animation-delay: 3s;
+body{
+    background:#000;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
 }
 
 
-/* Logo PMX */
-
-.logo {
-    font-size: 90px;
-    font-weight: 900;
-    color: #d4af37;
-    letter-spacing: 15px;
-
-    animation: entrada 1.5s ease,
-               brilho 2s infinite alternate;
+.loader{
+    text-align:center;
+    animation: sair 1s ease forwards;
+    animation-delay:3s;
 }
 
 
-/* Frase */
-
-.frase {
-    margin-top: 20px;
-    color: white;
-    font-size: 18px;
-    letter-spacing: 6px;
-    opacity: 0;
-
-    animation: aparecer 2s forwards;
-    animation-delay: 1s;
+.logo svg{
+    width:180px;
+    height:180px;
+    animation:
+    aparecer 1.5s ease,
+    brilho 2s infinite alternate;
 }
 
 
-/* Animações */
+.frase{
+    color:#fff;
+    margin-top:20px;
+    font-size:18px;
+    letter-spacing:6px;
+    opacity:0;
+    animation:frase 1.5s forwards;
+    animation-delay:1s;
+}
 
-@keyframes entrada {
 
-    from {
-        opacity: 0;
-        transform: scale(0.5);
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.5);
     }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
+    to{
+        opacity:1;
+        transform:scale(1);
     }
-
 }
 
 
-@keyframes brilho {
-
-    from {
-        text-shadow: 
-        0 0 10px #d4af37;
+@keyframes brilho{
+    from{
+        filter:drop-shadow(0 0 5px #d4af37);
     }
-
-    to {
-        text-shadow:
-        0 0 50px #d4af37;
+    to{
+        filter:drop-shadow(0 0 30px #d4af37);
     }
-
 }
 
 
-@keyframes aparecer {
-
-    to {
-        opacity: 1;
+@keyframes frase{
+    to{
+        opacity:1;
     }
-
 }
 
 
-@keyframes desaparecer {
-
-    to {
-        opacity: 0;
-        transform: scale(1.2);
+@keyframes sair{
+    to{
+        opacity:0;
+        transform:scale(1.2);
     }
-
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="loader">
 
-    <div class="logo">
-        PMX
-    </div>
+<div class="logo">
 
-    <div class="frase">
-        A new standard
-    </div>
+<svg viewBox="0 0 200 200">
+
+<circle cx="100" cy="100" r="90"
+fill="none"
+stroke="#d4af37"
+stroke-width="4"/>
+
+<text x="100" y="125"
+text-anchor="middle"
+font-size="80"
+font-weight="bold"
+font-family="Arial"
+fill="#d4af37">
+PMX
+</text>
+
+</svg>
 
 </div>
 
 
-</body>
+<div class="frase">
+A new standard
+</div>
 
+
+</div>
+
+</body>
 </html>
