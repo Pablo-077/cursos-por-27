@@ -7,6 +7,7 @@
 <title>PMX - A new standard</title>
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -20,64 +21,117 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Tela de carregamento */
 
 .loader {
     text-align: center;
-    animation: sair 1s ease forwards;
+    animation: desaparecer 1s ease forwards;
     animation-delay: 3s;
 }
 
+
+/* Logo PMX */
+
 .logo {
-    font-size: 80px;
-    font-weight: bold;
+    font-size: 90px;
+    font-weight: 900;
     color: #d4af37;
-    letter-spacing: 10px;
-    animation: brilho 2s infinite alternate;
+    letter-spacing: 15px;
+
+    animation: entrada 1.5s ease,
+               brilho 2s infinite alternate;
 }
 
+
+/* Frase */
+
 .frase {
-    color: #fff;
-    margin-top: 15px;
+    margin-top: 20px;
+    color: white;
     font-size: 18px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
     opacity: 0;
+
     animation: aparecer 2s forwards;
     animation-delay: 1s;
 }
 
-@keyframes brilho {
+
+/* Animações */
+
+@keyframes entrada {
+
     from {
-        text-shadow: 0 0 10px #d4af37;
+        opacity: 0;
+        transform: scale(0.5);
     }
+
     to {
-        text-shadow: 0 0 40px #d4af37;
+        opacity: 1;
+        transform: scale(1);
     }
+
 }
 
+
+@keyframes brilho {
+
+    from {
+        text-shadow: 
+        0 0 10px #d4af37;
+    }
+
+    to {
+        text-shadow:
+        0 0 50px #d4af37;
+    }
+
+}
+
+
 @keyframes aparecer {
+
     to {
         opacity: 1;
     }
+
 }
 
-@keyframes sair {
+
+@keyframes desaparecer {
+
     to {
         opacity: 0;
         transform: scale(1.2);
     }
+
 }
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="loader">
-    <div class="logo">PMX</div>
-    <div class="frase">A new standard</div>
+
+    <div class="logo">
+        PMX
+    </div>
+
+    <div class="frase">
+        A new standard
+    </div>
+
 </div>
 
+
 </body>
+
 </html>
