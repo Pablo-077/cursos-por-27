@@ -1,28 +1,203 @@
-<svg viewBox="0 0 300 300">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-<!-- P base -->
-<path d="M90 240 V60 H160 C210 60 210 130 160 130 H90"
-fill="none"
-stroke="#d4af37"
-stroke-width="18"
-stroke-linecap="round"
-stroke-linejoin="round"/>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PMX - A new standard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 
-<!-- M integrado acima -->
-<path d="M110 120 L150 70 L190 120 L230 70 V170"
-fill="none"
-stroke="#d4af37"
-stroke-width="18"
-stroke-linecap="round"
-stroke-linejoin="round"/>
+body{
+
+    background:#000;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
 
 
-<!-- X fechando o símbolo -->
-<path d="M130 150 L210 230 M210 150 L130 230"
-fill="none"
-stroke="#d4af37"
-stroke-width="18"
-stroke-linecap="round"/>
 
-</svg>
+/* Tela de carregamento */
+
+.loader{
+
+    text-align:center;
+
+    animation:saida 1s ease forwards;
+    animation-delay:3s;
+
+}
+
+
+
+/* Logo */
+
+.logo{
+
+    color:#d4af37;
+
+    font-size:90px;
+
+    font-weight:900;
+
+    letter-spacing:15px;
+
+
+    animation:
+
+    entrada 1.5s ease,
+
+    brilho 2s infinite alternate;
+
+}
+
+
+
+/* Frase */
+
+.frase{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-size:18px;
+
+    letter-spacing:6px;
+
+    opacity:0;
+
+
+    animation:aparecer 1.5s forwards;
+
+    animation-delay:1s;
+
+}
+
+
+
+
+
+@keyframes entrada{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes brilho{
+
+
+    from{
+
+        text-shadow:
+
+        0 0 10px #d4af37;
+
+    }
+
+
+    to{
+
+        text-shadow:
+
+        0 0 45px #d4af37;
+
+    }
+
+}
+
+
+
+
+@keyframes aparecer{
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+@keyframes saida{
+
+    to{
+
+        opacity:0;
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="loader">
+
+
+<div class="logo">
+
+PMX
+
+</div>
+
+
+<div class="frase">
+
+A new standard
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
