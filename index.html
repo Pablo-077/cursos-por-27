@@ -12,6 +12,7 @@
 
 <style>
 
+
 *{
     margin:0;
     padding:0;
@@ -19,14 +20,14 @@
 }
 
 
-html, body{
+html,body{
 
     width:100%;
     height:100%;
 
     overflow:hidden;
 
-    touch-action: manipulation;
+    touch-action:manipulation;
 
 }
 
@@ -43,8 +44,9 @@ body{
 
 
 
-
-/* ===== LOADING ===== */
+/* =====================
+        LOADING
+===================== */
 
 
 .loader{
@@ -66,37 +68,32 @@ body{
 
     color:#d4af37;
 
-    font-size:90px;
+    font-size:80px;
 
     font-weight:900;
 
-    letter-spacing:15px;
-
-    animation:entrada 1.5s ease, brilho 2s infinite alternate;
+    letter-spacing:12px;
 
 }
 
 
 .tagline{
 
-    margin-top:20px;
+    margin-top:15px;
 
-    letter-spacing:6px;
+    letter-spacing:5px;
 
-    color:#fff;
-
-    opacity:0;
-
-    animation:aparecer 1s forwards;
-
-    animation-delay:1s;
+    color:#ddd;
 
 }
 
 
 
 
-/* ===== HOME ===== */
+
+/* =====================
+        HOME
+===================== */
 
 
 .home{
@@ -109,28 +106,34 @@ body{
 
 
 
-/* ===== TOPO PMX ===== */
 
 
-..brand-bar{
+/* =====================
+      TOPO PMX
+===================== */
+
+
+.brand-bar{
 
     width:100%;
-    height:125px;
+
+    height:90px;
 
     background:#050505;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     position:relative;
 
-    overflow:hidden;
-
 }
 
 
-/* borda elegante inferior */
+
+/* linha premium */
 
 .brand-bar::after{
 
@@ -140,15 +143,15 @@ body{
 
     bottom:0;
 
-    width:65%;
+    width:55%;
 
     height:1px;
 
     background:#d4af37;
 
-    box-shadow:0 0 15px #d4af37;
-
 }
+
+
 
 
 
@@ -160,55 +163,19 @@ body{
 
     position:absolute;
 
-    bottom:-7px;
+    bottom:-8px;
 
     color:#d4af37;
-
-    font-size:14px;
 
     background:#050505;
 
-    padding:0 12px;
+    padding:0 10px;
 
-    z-index:2;
-
-}
-
-
-.logo{
-
-    color:#d4af37;
-
-    font-size:48px;
-
-    font-weight:900;
-
-    letter-spacing:12px;
-
-    animation:logoEntrada .8s ease;
+    font-size:12px;
 
 }
 
 
-
-@keyframes logoEntrada{
-
-from{
-
-    opacity:0;
-
-    transform:translateY(-15px);
-
-}
-
-
-to{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
 
 
 
@@ -216,7 +183,7 @@ to{
 
     color:#d4af37;
 
-    font-size:45px;
+    font-size:38px;
 
     font-weight:900;
 
@@ -228,7 +195,9 @@ to{
 
 
 
-/* ===== AÇÕES ===== */
+/* =====================
+       NAVEGAÇÃO
+===================== */
 
 
 .navigation{
@@ -239,20 +208,28 @@ to{
 
     align-items:center;
 
-    padding:25px;
+    padding:22px 25px;
 
 }
 
 
 
-/* MENU */
 
+
+/* MENU */
 
 .menu-btn{
 
-    width:35px;
-
     cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.menu-btn:active{
+
+    transform:translateY(-4px);
 
 }
 
@@ -268,11 +245,10 @@ to{
 
     background:#d4af37;
 
-    margin:7px 0;
-
-    transition:.3s;
+    margin:6px 0;
 
 }
+
 
 
 
@@ -284,30 +260,34 @@ to{
 
     cursor:pointer;
 
-}
-
-
-.cart-btn svg{
-
-    width:35px;
-
-    stroke:#d4af37;
-
     transition:.3s;
 
 }
 
 
-.cart-btn:hover svg{
+.cart-btn:active{
 
-    transform:translateY(-5px);
+    transform:translateY(-4px);
+
+}
+
+
+.cart-btn svg{
+
+    width:34px;
+
+    stroke:#d4af37;
 
 }
 
 
 
 
-/* ===== PAINÉIS ===== */
+
+
+/* =====================
+       PAINÉIS
+===================== */
 
 
 .panel{
@@ -316,15 +296,15 @@ to{
 
     top:0;
 
-    width:280px;
-
     height:100vh;
+
+    width:290px;
 
     background:#080808;
 
     z-index:20;
 
-    padding:35px 25px;
+    padding:30px 25px;
 
     transition:.4s;
 
@@ -334,7 +314,7 @@ to{
 
 .menu-panel{
 
-    left:-300px;
+    left:-310px;
 
 }
 
@@ -349,7 +329,7 @@ to{
 
 .cart-panel{
 
-    right:-300px;
+    right:-310px;
 
 }
 
@@ -362,21 +342,14 @@ to{
 
 
 
+
 .panel h2{
 
     color:#d4af37;
 
-    margin-bottom:40px;
+    text-align:center;
 
-}
-
-
-
-.panel p{
-
-    margin:25px 0;
-
-    font-size:18px;
+    margin-bottom:25px;
 
 }
 
@@ -384,25 +357,75 @@ to{
 
 
 
-/* CARRINHO VAZIO */
+/* DIVISÃO PREMIUM */
+
+.panel-line{
+
+    width:100%;
+
+    height:1px;
+
+    background:#d4af37;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+/* OPÇÕES MENU */
+
+
+.option{
+
+    padding:15px 5px;
+
+    margin:8px 0;
+
+    transition:.3s;
+
+}
+
+
+.option:active{
+
+    color:#d4af37;
+
+    transform:translateX(8px);
+
+}
+
+
+
+
+
+
+/* =====================
+        CARRINHO
+===================== */
 
 
 .empty-cart{
 
     text-align:center;
 
-    margin-top:100px;
-
-    color:#ccc;
+    margin-top:80px;
 
 }
 
 
-.empty-cart span{
+.empty-icon{
 
-    font-size:50px;
+    font-size:55px;
+
+    color:#d4af37;
+
+    margin-bottom:25px;
 
 }
+
 
 
 
@@ -410,7 +433,7 @@ to{
 
     margin-top:30px;
 
-    padding:12px 20px;
+    padding:12px 25px;
 
     border:1px solid #d4af37;
 
@@ -418,15 +441,10 @@ to{
 
     background:transparent;
 
-    cursor:pointer;
-
 }
 
 
 
-
-
-/* FUNDO */
 
 
 .overlay{
@@ -437,9 +455,9 @@ to{
 
     background:rgba(0,0,0,.7);
 
-    display:none;
-
     z-index:15;
+
+    display:none;
 
 }
 
@@ -454,9 +472,6 @@ to{
 
 
 
-/* CONTEÚDO */
-
-
 .content{
 
     display:flex;
@@ -465,68 +480,14 @@ to{
 
     align-items:center;
 
-    height:calc(100vh - 170px);
+    height:calc(100vh - 160px);
 
-    color:#777;
-
-}
-
-
-
-
-
-/* ANIMAÇÕES */
-
-
-@keyframes entrada{
-
-from{
-
-opacity:0;
-
-transform:scale(.5);
-
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
+    color:#555;
 
 }
 
 
 
-@keyframes brilho{
-
-from{
-
-text-shadow:0 0 10px #d4af37;
-
-}
-
-to{
-
-text-shadow:0 0 35px #d4af37;
-
-}
-
-}
-
-
-
-@keyframes aparecer{
-
-to{
-
-opacity:1;
-
-}
-
-}
 
 
 </style>
@@ -536,7 +497,8 @@ opacity:1;
 <body>
 
 
-<!-- TELA DE CARREGAMENTO -->
+
+<!-- LOADING -->
 
 <div class="loader" id="loader">
 
@@ -545,10 +507,11 @@ opacity:1;
     </div>
 
     <div class="tagline">
-        A new standard
+        A NEW STANDARD
     </div>
 
 </div>
+
 
 
 
@@ -560,15 +523,20 @@ opacity:1;
 
 
 
-<!-- TOPO DA MARCA -->
+
+
+<!-- TOPO PMX -->
 
 <div class="brand-bar">
+
 
     <div class="logo">
         PMX
     </div>
 
+
 </div>
+
 
 
 
@@ -577,6 +545,9 @@ opacity:1;
 <!-- NAVEGAÇÃO -->
 
 <div class="navigation">
+
+
+
 
 
     <!-- MENU -->
@@ -593,20 +564,28 @@ opacity:1;
 
 
 
+
+
     <!-- CARRINHO -->
 
     <div class="cart-btn" onclick="openCart()">
 
 
+
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
 
-            <path d="M3 3h2l2.5 12h10l2-8H7"/>
 
-            <circle cx="10" cy="20" r="1.5"/>
+            <path d="M3 3h2l2 12h11l3-8H7"/>
+
+
+            <circle cx="9" cy="20" r="1.5"/>
+
 
             <circle cx="17" cy="20" r="1.5"/>
 
+
         </svg>
+
 
 
     </div>
@@ -621,20 +600,22 @@ opacity:1;
 
 
 
-<!-- CONTEÚDO -->
+<!-- CONTEÚDO PRINCIPAL -->
 
 <div class="content">
 
-    Área principal da PMX
 
-</div>
-
-
-
-
+    Em breve...
 
 
 </div>
+
+
+
+
+
+</div>
+
 
 
 
@@ -648,25 +629,55 @@ opacity:1;
 <div class="panel menu-panel" id="menuPanel">
 
 
+
     <h2>PMX</h2>
 
 
-    <p>👤 Minha conta</p>
+    <div class="panel-line"></div>
 
-    <p>🛒 Meu carrinho</p>
 
-    <p>Produtos</p>
 
-    <p>Cursos</p>
 
-    <p>Destaques</p>
+    <div class="option">
+        👤 Minha conta
+    </div>
 
-    <p>Sobre nós</p>
 
-    <p>Contato</p>
+    <div class="option">
+        🛒 Carrinho
+    </div>
+
+
+    <div class="option">
+        Produtos
+    </div>
+
+
+    <div class="option">
+        Cursos
+    </div>
+
+
+    <div class="option">
+        Destaques
+    </div>
+
+
+    <div class="option">
+        Sobre nós
+    </div>
+
+
+    <div class="option">
+        Contato
+    </div>
+
+
 
 
 </div>
+
+
 
 
 
@@ -680,24 +691,40 @@ opacity:1;
 <div class="panel cart-panel" id="cartPanel">
 
 
-    <h2>🛒 Carrinho</h2>
+
+    <h2>
+        🛒 Carrinho
+    </h2>
+
+
+
+    <div class="panel-line"></div>
+
+
 
 
 
     <div class="empty-cart">
 
 
-        <span>◯</span>
+        <div class="empty-icon">
+
+            ▢
+
+        </div>
+
 
 
         <p>
-        Nada por aqui ainda.
+            Nada por aqui ainda.
         </p>
 
 
         <p>
-        Sua próxima escolha começa agora.
+            Sua próxima escolha começa agora.
         </p>
+
+
 
 
 
@@ -721,13 +748,17 @@ opacity:1;
 
 
 
-<!-- FUNDO PARA FECHAR -->
+
+<!-- FUNDO -->
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
 <script>
 
 
-// ENTRADA NA HOME APÓS 3 SEGUNDOS
+// =====================
+// LOADING 3 SEGUNDOS
+// =====================
+
 
 setTimeout(()=>{
 
@@ -746,7 +777,11 @@ setTimeout(()=>{
 
 
 
+
+// =====================
 // ELEMENTOS
+// =====================
+
 
 const menuPanel = document.getElementById("menuPanel");
 
@@ -760,10 +795,15 @@ const overlay = document.getElementById("overlay");
 
 
 
-// ABRIR MENU
+// =====================
+// MENU
+// =====================
 
 
 function openMenu(){
+
+
+    cartPanel.classList.remove("active");
 
 
     menuPanel.classList.add("active");
@@ -780,11 +820,15 @@ function openMenu(){
 
 
 
-
-// ABRIR CARRINHO
+// =====================
+// CARRINHO
+// =====================
 
 
 function openCart(){
+
+
+    menuPanel.classList.remove("active");
 
 
     cartPanel.classList.add("active");
@@ -801,8 +845,9 @@ function openCart(){
 
 
 
-
-// FECHAR TUDO
+// =====================
+// FECHAR
+// =====================
 
 
 function closePanels(){
@@ -820,6 +865,51 @@ function closePanels(){
 }
 
 
+
+
+
+
+
+// =====================
+// SELEÇÃO DAS OPÇÕES
+// =====================
+
+
+const options = document.querySelectorAll(".option");
+
+
+
+options.forEach(option=>{
+
+
+    option.addEventListener("click",()=>{
+
+
+        options.forEach(item=>{
+
+
+            item.style.color="white";
+
+
+            item.style.transform="translateX(0)";
+
+
+        });
+
+
+
+        option.style.color="#d4af37";
+
+
+        option.style.transform="translateX(8px)";
+
+
+
+    });
+
+
+
+});
 
 
 
