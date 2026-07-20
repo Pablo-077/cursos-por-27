@@ -16,77 +16,51 @@
     box-sizing:border-box;
 }
 
-
 body{
-
     background:#000;
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-
+    color:white;
     font-family:Arial, Helvetica, sans-serif;
-
+    overflow:hidden;
 }
 
 
-
-/* Tela de carregamento */
+/* ===== CARREGAMENTO ===== */
 
 .loader{
 
-    text-align:center;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 
-    animation:saida 1s ease forwards;
+    animation:sumir 1s forwards;
     animation-delay:3s;
 
 }
 
 
-
-/* Logo */
-
-.logo{
-
-    color:#d4af37;
+.logo-load{
 
     font-size:90px;
-
     font-weight:900;
-
+    color:#d4af37;
     letter-spacing:15px;
 
-
     animation:
-
-    entrada 1.5s ease,
-
+    entrada 1.5s,
     brilho 2s infinite alternate;
 
 }
 
 
-
-/* Frase */
-
 .frase{
 
     margin-top:20px;
-
-    color:white;
-
-    font-size:18px;
-
     letter-spacing:6px;
-
     opacity:0;
 
-
-    animation:aparecer 1.5s forwards;
-
+    animation:aparecer 1s forwards;
     animation-delay:1s;
 
 }
@@ -94,80 +68,216 @@ body{
 
 
 
+/* ===== HOME ===== */
 
-@keyframes entrada{
+.home{
 
-    from{
-
-        opacity:0;
-
-        transform:scale(.5);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
+    display:none;
+    height:100vh;
 
 }
 
+
+/* topo */
+
+header{
+
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+
+}
+
+
+.logo{
+
+    color:#d4af37;
+    font-size:40px;
+    font-weight:900;
+    letter-spacing:8px;
+
+}
+
+
+
+/* menu */
+
+.menu{
+
+    position:absolute;
+    left:25px;
+    top:95px;
+
+    font-size:32px;
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.menu:hover{
+
+    transform:translateY(-5px);
+    color:#d4af37;
+
+}
+
+
+
+/* lado direito */
+
+.right{
+
+    position:absolute;
+    right:25px;
+    top:90px;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+
+.icon{
+
+    font-size:30px;
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.icon:hover{
+
+    transform:scale(1.15);
+    color:#d4af37;
+
+}
+
+
+
+/* conteúdo */
+
+.content{
+
+    height:calc(100vh - 80px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    color:#aaa;
+
+}
+
+
+
+/* MENU LATERAL */
+
+.sidebar{
+
+    position:fixed;
+    left:-300px;
+    top:0;
+
+    width:270px;
+    height:100vh;
+
+    background:#111;
+
+    padding:40px 25px;
+
+    transition:.5s;
+
+}
+
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+
+.sidebar h2{
+
+    color:#d4af37;
+    margin-bottom:40px;
+
+}
+
+
+.sidebar p{
+
+    margin:25px 0;
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+
+.sidebar p:hover{
+
+    color:#d4af37;
+    transform:translateX(8px);
+
+}
+
+
+
+
+/* animações */
+
+@keyframes entrada{
+
+from{
+    opacity:0;
+    transform:scale(.5);
+}
+
+to{
+    opacity:1;
+    transform:scale(1);
+}
+
+}
 
 
 @keyframes brilho{
 
-
-    from{
-
-        text-shadow:
-
-        0 0 10px #d4af37;
-
-    }
-
-
-    to{
-
-        text-shadow:
-
-        0 0 45px #d4af37;
-
-    }
-
+from{
+text-shadow:0 0 10px #d4af37;
 }
 
+to{
+text-shadow:0 0 40px #d4af37;
+}
 
+}
 
 
 @keyframes aparecer{
 
-    to{
-
-        opacity:1;
-
-    }
+to{
+opacity:1;
+}
 
 }
 
 
+@keyframes sumir{
 
-
-@keyframes saida{
-
-    to{
-
-        opacity:0;
-
-        transform:scale(1.2);
-
-    }
-
+to{
+display:none;
 }
 
+}
 
 
 </style>
@@ -178,24 +288,120 @@ body{
 <body>
 
 
-<div class="loader">
+<!-- CARREGAMENTO -->
 
+<div class="loader" id="loader">
 
-<div class="logo">
-
+<div class="logo-load">
 PMX
-
 </div>
-
 
 <div class="frase">
-
 A new standard
+</div>
 
 </div>
 
 
+
+<!-- HOME -->
+
+<div class="home" id="home">
+
+
+<header>
+
+<div class="logo">
+PMX
 </div>
+
+
+</header>
+
+
+
+<div class="menu" onclick="abrirMenu()">
+
+☰
+
+</div>
+
+
+
+<div class="right">
+
+<div class="icon">
+🛒
+</div>
+
+
+<div class="icon">
+👤
+</div>
+
+</div>
+
+
+
+<div class="content">
+
+Área principal da PMX
+
+</div>
+
+
+
+</div>
+
+
+
+
+<!-- MENU -->
+
+<div class="sidebar" id="sidebar">
+
+<h2>PMX</h2>
+
+<p>Produtos</p>
+
+<p>Cursos</p>
+
+<p>Destaques</p>
+
+<p>Sobre nós</p>
+
+<p>Contato</p>
+
+</div>
+
+
+
+
+<script>
+
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display="none";
+
+document.getElementById("home").style.display="block";
+
+
+},3000);
+
+
+
+function abrirMenu(){
+
+document
+.getElementById("sidebar")
+.classList.toggle("active");
+
+}
+
+
+</script>
+
 
 
 </body>
