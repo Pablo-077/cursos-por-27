@@ -12,13 +12,11 @@
 
 <style>
 
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 
 html,body{
 
@@ -41,7 +39,6 @@ body{
     font-family:Arial, Helvetica, sans-serif;
 
 }
-
 
 
 /* =====================
@@ -88,9 +85,6 @@ body{
 }
 
 
-
-
-
 /* =====================
         HOME
 ===================== */
@@ -103,9 +97,6 @@ body{
     height:100vh;
 
 }
-
-
-
 
 
 /* =====================
@@ -132,9 +123,6 @@ body{
 }
 
 
-
-/* linha premium */
-
 .brand-bar::after{
 
     content:"";
@@ -151,11 +139,6 @@ body{
 
 }
 
-
-
-
-
-/* detalhe central */
 
 .brand-bar::before{
 
@@ -176,9 +159,6 @@ body{
 }
 
 
-
-
-
 .logo{
 
     color:#d4af37;
@@ -190,9 +170,6 @@ body{
     letter-spacing:10px;
 
 }
-
-
-
 
 
 /* =====================
@@ -213,10 +190,8 @@ body{
 }
 
 
-
-
-
 /* MENU */
+
 
 .menu-btn{
 
@@ -234,7 +209,6 @@ body{
 }
 
 
-
 .menu-btn span{
 
     display:block;
@@ -248,9 +222,6 @@ body{
     margin:6px 0;
 
 }
-
-
-
 
 
 /* CARRINHO */
@@ -278,14 +249,7 @@ body{
 
     stroke:#d4af37;
 
-}
-
-
-
-
-
-
-/* =====================
+}/* =====================
        PAINÉIS
 ===================== */
 
@@ -309,7 +273,6 @@ body{
     transition:.4s;
 
 }
-
 
 
 .menu-panel{
@@ -342,7 +305,6 @@ body{
 
 
 
-
 .panel h2{
 
     color:#d4af37;
@@ -355,10 +317,6 @@ body{
 
 
 
-
-
-/* DIVISÃO PREMIUM */
-
 .panel-line{
 
     width:100%;
@@ -370,8 +328,6 @@ body{
     margin-bottom:35px;
 
 }
-
-
 
 
 
@@ -401,7 +357,6 @@ body{
 
 
 
-
 /* =====================
         CARRINHO
 ===================== */
@@ -416,7 +371,14 @@ body{
 }
 
 
+/* NOVO ÍCONE CARRINHO */
+
+
 .empty-icon{
+
+    position:relative;
+
+    display:inline-block;
 
     font-size:55px;
 
@@ -426,6 +388,36 @@ body{
 
 }
 
+
+.alert{
+
+    position:absolute;
+
+    top:-18px;
+
+    right:-12px;
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    background:#d4af37;
+
+    color:#000;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
 
 
 
@@ -440,6 +432,17 @@ body{
     color:#d4af37;
 
     background:transparent;
+
+    transition:.3s;
+
+}
+
+
+.button:active{
+
+    background:#d4af37;
+
+    color:#000;
 
 }
 
@@ -487,9 +490,6 @@ body{
 }
 
 
-
-
-
 </style>
 </head>
 
@@ -499,6 +499,7 @@ body{
 
 
 <!-- LOADING -->
+
 
 <div class="loader" id="loader">
 
@@ -515,17 +516,11 @@ body{
 
 
 
-
-
 <!-- HOME -->
+
 
 <div class="home" id="home">
 
-
-
-
-
-<!-- TOPO PMX -->
 
 <div class="brand-bar">
 
@@ -538,103 +533,62 @@ body{
 </div>
 
 
-
-
-
-
-<!-- NAVEGAÇÃO -->
-
 <div class="navigation">
 
 
+<div class="menu-btn" onclick="openMenu()">
 
-
-
-    <!-- MENU -->
-
-    <div class="menu-btn" onclick="openMenu()">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </div>
-
-
-
-
-
-
-
-    <!-- CARRINHO -->
-
-    <div class="cart-btn" onclick="openCart()">
-
-
-
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-
-
-            <path d="M3 3h2l2 12h11l3-8H7"/>
-
-
-            <circle cx="9" cy="20" r="1.5"/>
-
-
-            <circle cx="17" cy="20" r="1.5"/>
-
-
-        </svg>
-
-
-
-    </div>
-
-
+<span></span>
+<span></span>
+<span></span>
 
 </div>
 
 
 
 
+<div class="cart-btn" onclick="openCart()">
 
 
+<svg viewBox="0 0 24 24" fill="none" stroke-width="2">
 
-<!-- CONTEÚDO PRINCIPAL -->
+
+<path d="M3 3h2l2 12h11l3-8H7"/>
+
+
+<circle cx="9" cy="20" r="1.5"/>
+
+
+<circle cx="17" cy="20" r="1.5"/>
+
+
+</svg>
+
+
+</div>
+
+
+</div>
+
 
 <div class="content">
 
-
     Em breve...
 
-
 </div>
 
 
-
-
-
 </div>
-
-
-
-
-
-
-
-
 <!-- MENU LATERAL -->
 
 
 <div class="panel menu-panel" id="menuPanel">
 
 
-
     <h2>PMX</h2>
 
 
     <div class="panel-line"></div>
-
 
 
 
@@ -674,10 +628,7 @@ body{
 
 
 
-
 </div>
-
-
 
 
 
@@ -691,52 +642,50 @@ body{
 <div class="panel cart-panel" id="cartPanel">
 
 
-
-    <h2>
-        🛒 Carrinho
-    </h2>
-
+<h2>
+    🛒 Carrinho
+</h2>
 
 
-    <div class="panel-line"></div>
 
+<div class="panel-line"></div>
 
 
 
 
-    <div class="empty-cart">
+<div class="empty-cart">
 
 
-        <div class="empty-icon">
+<div class="empty-icon">
 
-            ▢
+    🛒
+    <span class="alert">!</span>
 
-        </div>
-
-
-
-        <p>
-            Nada por aqui ainda.
-        </p>
-
-
-        <p>
-            Sua próxima escolha começa agora.
-        </p>
+</div>
 
 
 
+<p>
+    Nada por aqui ainda.
+</p>
 
 
-        <button class="button">
-
-            Explorar produtos
-
-        </button>
+<p>
+    Sua próxima escolha começa agora.
+</p>
 
 
 
-    </div>
+
+<button class="button">
+
+    Explorar produtos
+
+</button>
+
+
+
+</div>
 
 
 
@@ -752,6 +701,12 @@ body{
 <!-- FUNDO -->
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
+
+
+
+
+
+
 <script>
 
 
@@ -777,10 +732,7 @@ setTimeout(()=>{
 
 
 
-
-// =====================
 // ELEMENTOS
-// =====================
 
 
 const menuPanel = document.getElementById("menuPanel");
@@ -795,9 +747,7 @@ const overlay = document.getElementById("overlay");
 
 
 
-// =====================
 // MENU
-// =====================
 
 
 function openMenu(){
@@ -820,9 +770,7 @@ function openMenu(){
 
 
 
-// =====================
 // CARRINHO
-// =====================
 
 
 function openCart(){
@@ -845,9 +793,7 @@ function openCart(){
 
 
 
-// =====================
 // FECHAR
-// =====================
 
 
 function closePanels(){
@@ -870,9 +816,7 @@ function closePanels(){
 
 
 
-// =====================
-// SELEÇÃO DAS OPÇÕES
-// =====================
+// OPÇÕES MENU
 
 
 const options = document.querySelectorAll(".option");
@@ -890,7 +834,6 @@ options.forEach(option=>{
 
             item.style.color="white";
 
-
             item.style.transform="translateX(0)";
 
 
@@ -904,7 +847,6 @@ options.forEach(option=>{
         option.style.transform="translateX(8px)";
 
 
-
     });
 
 
@@ -916,6 +858,7 @@ options.forEach(option=>{
 
 
 </script>
+
 
 
 </body>
