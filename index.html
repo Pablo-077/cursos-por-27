@@ -24,17 +24,17 @@ body{
 }
 
 
-/* ===== CARREGAMENTO ===== */
+/* ===== LOADING ===== */
 
 .loader{
 
     height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
 
-    animation:sumir 1s forwards;
+    animation:fadeOut 1s forwards;
     animation-delay:3s;
 
 }
@@ -42,29 +42,28 @@ body{
 
 .logo-load{
 
+    color:#d4af37;
     font-size:90px;
     font-weight:900;
-    color:#d4af37;
     letter-spacing:15px;
 
     animation:
-    entrada 1.5s,
-    brilho 2s infinite alternate;
+    entrance 1.5s ease,
+    glow 2s infinite alternate;
 
 }
 
 
-.frase{
+.tagline{
 
     margin-top:20px;
     letter-spacing:6px;
     opacity:0;
 
-    animation:aparecer 1s forwards;
+    animation:show 1s forwards;
     animation-delay:1s;
 
 }
-
 
 
 
@@ -78,14 +77,16 @@ body{
 }
 
 
-/* topo */
+
+/* ===== HEADER ===== */
 
 header{
 
-    height:80px;
+    height:90px;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+
     position:relative;
 
 }
@@ -94,7 +95,7 @@ header{
 .logo{
 
     color:#d4af37;
-    font-size:40px;
+    font-size:42px;
     font-weight:900;
     letter-spacing:8px;
 
@@ -102,49 +103,87 @@ header{
 
 
 
-/* menu */
+/* MENU */
 
-.menu{
+.menu-btn{
 
     position:absolute;
     left:25px;
-    top:95px;
+    top:115px;
 
-    font-size:32px;
+    width:35px;
+    height:30px;
+
     cursor:pointer;
+
+    z-index:10;
+
+}
+
+
+.menu-btn span{
+
+    display:block;
+
+    height:3px;
+    width:30px;
+
+    background:#d4af37;
+
+    margin:6px 0;
 
     transition:.3s;
 
 }
 
 
-.menu:hover{
+.menu-btn.active span:nth-child(1){
 
-    transform:translateY(-5px);
-    color:#d4af37;
+    transform:translateY(9px) rotate(45deg);
+
+}
+
+
+.menu-btn.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+
+.menu-btn.active span:nth-child(3){
+
+    transform:translateY(-9px) rotate(-45deg);
 
 }
 
 
 
-/* lado direito */
 
-.right{
+/* LADO DIREITO */
+
+.actions{
 
     position:absolute;
+
     right:25px;
-    top:90px;
 
     display:flex;
+
     flex-direction:column;
-    gap:20px;
+
+    align-items:center;
+
+    gap:25px;
+
+    top:25px;
 
 }
+
 
 
 .icon{
 
-    font-size:30px;
     cursor:pointer;
 
     transition:.3s;
@@ -154,47 +193,96 @@ header{
 
 .icon:hover{
 
-    transform:scale(1.15);
-    color:#d4af37;
+    transform:translateY(-5px);
 
 }
 
 
 
-/* conteúdo */
+/* PERFIL */
 
-.content{
+.profile{
 
-    height:calc(100vh - 80px);
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    border:2px solid #d4af37;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    font-size:22px;
-    color:#aaa;
+}
+
+
+.profile svg{
+
+    width:22px;
+    fill:#d4af37;
 
 }
 
 
 
-/* MENU LATERAL */
+
+/* CARRINHO */
+
+.cart svg{
+
+    width:32px;
+    stroke:#d4af37;
+
+}
+
+
+
+
+/* CONTEÚDO */
+
+.content{
+
+    height:calc(100vh - 90px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#777;
+
+}
+
+
+
+
+
+/* ===== MENU LATERAL ===== */
 
 .sidebar{
 
     position:fixed;
-    left:-300px;
-    top:0;
 
-    width:270px;
+    top:0;
+    left:-300px;
+
+    width:280px;
+
     height:100vh;
 
-    background:#111;
+    background:#080808;
 
     padding:40px 25px;
 
-    transition:.5s;
+    transition:.4s;
+
+    z-index:20;
 
 }
+
 
 
 .sidebar.active{
@@ -204,27 +292,33 @@ header{
 }
 
 
+
 .sidebar h2{
 
     color:#d4af37;
-    margin-bottom:40px;
+
+    margin-bottom:50px;
 
 }
 
 
+
 .sidebar p{
 
-    margin:25px 0;
     font-size:18px;
+
+    margin:30px 0;
 
     transition:.3s;
 
 }
 
 
+
 .sidebar p:hover{
 
     color:#d4af37;
+
     transform:translateX(8px);
 
 }
@@ -232,24 +326,53 @@ header{
 
 
 
-/* animações */
 
-@keyframes entrada{
+/* FUNDO AO ABRIR */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    display:none;
+
+    z-index:15;
+
+}
+
+
+.overlay.active{
+
+    display:block;
+
+}
+
+
+
+
+
+/* ANIMAÇÕES */
+
+@keyframes entrance{
 
 from{
-    opacity:0;
-    transform:scale(.5);
+opacity:0;
+transform:scale(.5);
 }
 
 to{
-    opacity:1;
-    transform:scale(1);
+opacity:1;
+transform:scale(1);
 }
 
 }
 
 
-@keyframes brilho{
+
+@keyframes glow{
 
 from{
 text-shadow:0 0 10px #d4af37;
@@ -262,7 +385,8 @@ text-shadow:0 0 40px #d4af37;
 }
 
 
-@keyframes aparecer{
+
+@keyframes show{
 
 to{
 opacity:1;
@@ -271,34 +395,32 @@ opacity:1;
 }
 
 
-@keyframes sumir{
+
+@keyframes fadeOut{
 
 to{
-display:none;
+opacity:0;
+visibility:hidden;
 }
 
 }
 
 
 </style>
-
-</head>
-
-
 <body>
 
 
-<!-- CARREGAMENTO -->
+<!-- TELA DE CARREGAMENTO -->
 
 <div class="loader" id="loader">
 
-<div class="logo-load">
-PMX
-</div>
+    <div class="logo-load">
+        PMX
+    </div>
 
-<div class="frase">
-A new standard
-</div>
+    <div class="tagline">
+        A new standard
+    </div>
 
 </div>
 
@@ -311,68 +433,115 @@ A new standard
 
 <header>
 
-<div class="logo">
-PMX
-</div>
+    <div class="logo">
+        PMX
+    </div>
 
 
 </header>
 
 
 
-<div class="menu" onclick="abrirMenu()">
+<!-- BOTÃO MENU -->
 
-☰
+<div class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+
+
+<!-- AÇÕES -->
+
+<div class="actions">
+
+
+    <!-- PERFIL -->
+
+    <div class="icon profile">
+
+        <svg viewBox="0 0 24 24">
+
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/>
+
+        </svg>
+
+    </div>
+
+
+
+    <!-- CARRINHO -->
+
+    <div class="icon cart">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+
+            <path d="M3 3h2l2.5 12h10l2-8H7"/>
+
+            <circle cx="10" cy="20" r="1.5"/>
+
+            <circle cx="17" cy="20" r="1.5"/>
+
+        </svg>
+
+    </div>
+
 
 </div>
 
 
 
-<div class="right">
-
-<div class="icon">
-🛒
-</div>
 
 
-<div class="icon">
-👤
-</div>
-
-</div>
-
-
+<!-- CONTEÚDO -->
 
 <div class="content">
 
-Área principal da PMX
+    Área principal da PMX
 
 </div>
 
 
 
+
 </div>
 
 
 
 
-<!-- MENU -->
+
+
+<!-- MENU LATERAL -->
 
 <div class="sidebar" id="sidebar">
 
-<h2>PMX</h2>
+    <h2>PMX</h2>
 
-<p>Produtos</p>
 
-<p>Cursos</p>
+    <p>Produtos</p>
 
-<p>Destaques</p>
+    <p>Cursos</p>
 
-<p>Sobre nós</p>
+    <p>Destaques</p>
 
-<p>Contato</p>
+    <p>Sobre nós</p>
+
+    <p>Contato</p>
+
 
 </div>
+
+
+
+
+<!-- FUNDO -->
+
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
 
 
 
@@ -380,28 +549,49 @@ PMX
 <script>
 
 
+// entra na Home depois de 3 segundos
+
 setTimeout(()=>{
 
-document.getElementById("loader").style.display="none";
+    document.getElementById("loader").style.display="none";
 
-document.getElementById("home").style.display="block";
+    document.getElementById("home").style.display="block";
 
 
 },3000);
 
 
 
-function abrirMenu(){
 
-document
-.getElementById("sidebar")
-.classList.toggle("active");
+
+
+// abre e fecha menu
+
+function toggleMenu(){
+
+
+    document
+    .getElementById("sidebar")
+    .classList.toggle("active");
+
+
+
+    document
+    .getElementById("overlay")
+    .classList.toggle("active");
+
+
+
+    document
+    .getElementById("menuBtn")
+    .classList.toggle("active");
+
 
 }
 
 
-</script>
 
+</script>
 
 
 </body>
