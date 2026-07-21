@@ -14,9 +14,11 @@
 
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
 }
 
 
@@ -24,7 +26,7 @@
 :root{
 
     --gold:#d4af37;
-    --dark:#050505;
+    --black:#000;
     --panel:#080808;
 
 }
@@ -35,7 +37,9 @@ html,body{
 
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     touch-action:manipulation;
 
 }
@@ -45,7 +49,9 @@ html,body{
 body{
 
     background:#000;
+
     color:white;
+
     font-family:Arial, Helvetica, sans-serif;
 
 }
@@ -78,7 +84,6 @@ body{
 
 
 
-
 .logo-load{
 
     color:var(--gold);
@@ -89,13 +94,14 @@ body{
 
     letter-spacing:15px;
 
-    animation:logoEntrance 2s ease;
+    animation:logoIn 1.8s ease;
 
     text-shadow:
 
-    0 0 25px rgba(212,175,55,.5);
+    0 0 30px rgba(212,175,55,.6);
 
 }
+
 
 
 
@@ -104,13 +110,13 @@ body{
 
     margin-top:15px;
 
-    color:#ddd;
-
     letter-spacing:7px;
+
+    color:#ddd;
 
     opacity:0;
 
-    animation:tagAppear 2s ease forwards;
+    animation:tagIn 1.5s forwards;
 
     animation-delay:.5s;
 
@@ -120,52 +126,41 @@ body{
 
 
 
-@keyframes logoEntrance{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.75);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-
-
-
-@keyframes tagAppear{
+@keyframes logoIn{
 
 
 from{
 
 opacity:0;
 
-transform:translateY(10px);
+transform:scale(.7);
 
 }
-
 
 
 to{
 
 opacity:1;
 
-transform:translateY(0);
+transform:scale(1);
 
 }
 
+
+}
+
+
+
+
+
+@keyframes tagIn{
+
+
+to{
+
+opacity:1;
+
+}
 
 
 }
@@ -200,51 +195,70 @@ transform:translateY(0);
 
 
 
+
 /* =====================
-        TOPO PMX
+       TOPO PMX
 ===================== */
 
 
 .brand-bar{
 
 
-    width:100%;
-
-    height:145px;
+height:145px;
 
 
-    background:
-
-
-    radial-gradient(
-    circle at center,
-    rgba(212,175,55,.18),
-    transparent 50%
-    ),
-
-
-    linear-gradient(
-    180deg,
-    #090909,
-    #020202
-    );
+width:100%;
 
 
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
+background:
 
 
-    position:relative;
+radial-gradient(
 
-    overflow:hidden;
+circle at center,
+
+rgba(212,175,55,.18),
+
+transparent 55%
+
+),
+
+
+
+linear-gradient(
+
+180deg,
+
+#090909,
+
+#020202
+
+);
+
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
 
 }
+
 
 
 
@@ -256,43 +270,43 @@ transform:translateY(0);
 .brand-bar::after{
 
 
-    content:"";
+content:"";
 
 
-    position:absolute;
+position:absolute;
 
 
-    top:0;
+top:0;
 
 
-    left:-100%;
+left:-100%;
 
 
-    width:55%;
+width:60%;
 
 
-    height:100%;
-
-
-
-    background:
-
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    rgba(212,175,55,.25),
-
-    transparent
-
-    );
+height:100%;
 
 
 
-    animation:lightMove 5s infinite;
+background:
+
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(212,175,55,.3),
+
+transparent
+
+);
+
+
+
+animation:shine 5s infinite;
 
 
 
@@ -302,7 +316,7 @@ transform:translateY(0);
 
 
 
-@keyframes lightMove{
+@keyframes shine{
 
 
 0%{
@@ -312,24 +326,22 @@ left:-100%;
 }
 
 
-
 50%{
 
-left:150%;
+left:130%;
 
 }
-
 
 
 100%{
 
-left:150%;
+left:130%;
 
 }
 
 
-
 }
+
 
 
 
@@ -339,27 +351,29 @@ left:150%;
 .logo{
 
 
-    color:var(--gold);
+color:var(--gold);
 
 
-    font-size:52px;
+font-size:52px;
 
 
-    font-weight:900;
+font-weight:900;
 
 
-    letter-spacing:22px;
+letter-spacing:22px;
 
 
 
-    text-shadow:
+text-shadow:
 
 
-    0 0 20px rgba(212,175,55,.5);
+0 0 25px rgba(212,175,55,.5);
 
 
 
 }
+
+
 
 
 
@@ -368,16 +382,16 @@ left:150%;
 .brand-subtitle{
 
 
-    margin-top:12px;
+margin-top:12px;
 
 
-    font-size:12px;
+font-size:12px;
 
 
-    letter-spacing:9px;
+letter-spacing:9px;
 
 
-    color:#ddd;
+color:#ddd;
 
 
 
@@ -386,52 +400,51 @@ left:150%;
 
 
 
-
-
-/* separador premium */
 
 
 .brand-separator{
 
 
-    position:absolute;
+position:absolute;
 
 
-    bottom:-1px;
+bottom:-1px;
 
 
-    width:70%;
+width:70%;
 
 
-    height:2px;
-
-
-
-    background:
-
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    var(--gold),
-
-    transparent
-
-    );
+height:2px;
 
 
 
-    box-shadow:
+background:
 
 
-    0 0 15px rgba(212,175,55,.7);
+linear-gradient(
+
+90deg,
+
+transparent,
+
+var(--gold),
+
+transparent
+
+);
+
+
+
+box-shadow:
+
+
+0 0 15px rgba(212,175,55,.8);
 
 
 
 }
+
+
 
 
 
@@ -439,37 +452,39 @@ left:150%;
 .separator-star{
 
 
-    position:absolute;
+position:absolute;
 
 
-    bottom:-9px;
+bottom:-9px;
 
 
-    background:#050505;
+background:#050505;
 
 
-    color:var(--gold);
+color:var(--gold);
 
 
-    padding:0 15px;
+padding:0 15px;
 
 
-    font-size:15px;
+font-size:15px;
+
 
 
 }
 /* =====================
-       NAVEGAÇÃO
+       BARRINHA PMX
 ===================== */
 
 
 .navigation{
 
 
-    height:75px;
-
-
     width:100%;
+
+
+    height:80px;
+
 
 
     display:flex;
@@ -481,7 +496,9 @@ left:150%;
     align-items:center;
 
 
-    padding:0 25px;
+
+    padding:0 28px;
+
 
 
 }
@@ -490,25 +507,37 @@ left:150%;
 
 
 
+
 .icon-btn{
 
 
-    width:40px;
+    width:48px;
 
 
-    height:40px;
+    height:48px;
+
 
 
     display:flex;
 
 
-    justify-content:center;
-
-
     align-items:center;
 
 
+    justify-content:center;
+
+
+
     cursor:pointer;
+
+
+
+    position:relative;
+
+
+
+    z-index:5;
+
 
 
     transition:.3s;
@@ -521,38 +550,35 @@ left:150%;
 
 
 
-.icon-btn:active{
-
-
-    transform:translateY(-4px);
-
-
-
-}
-
-
-
-
 
 .icon-btn svg{
 
 
-    width:32px;
+    width:34px;
 
 
-    height:32px;
+    height:34px;
 
 
-    stroke:var(--gold);
+
+    display:block;
+
+
+
+    stroke:#d4af37;
+
 
 
     fill:none;
 
 
-    stroke-width:1.8;
+
+    stroke-width:2;
+
 
 
     stroke-linecap:round;
+
 
 
     stroke-linejoin:round;
@@ -566,12 +592,26 @@ left:150%;
 
 
 
+.icon-btn:active{
+
+
+    transform:translateY(-4px) scale(.95);
+
+
+
+}
+
+
+
+
+
+
+
 
 
 /* =====================
        PAINÉIS
 ===================== */
-
 
 
 .panel{
@@ -580,25 +620,38 @@ left:150%;
     position:fixed;
 
 
+
     top:0;
 
-
-    height:100vh;
 
 
     width:300px;
 
 
-    background:var(--panel);
+
+    height:100vh;
+
+
+
+    background:#080808;
+
 
 
     z-index:20;
 
 
+
     padding:35px 25px;
 
 
+
     transition:.4s ease;
+
+
+
+    box-shadow:
+
+    0 0 40px rgba(0,0,0,.8);
 
 
 
@@ -622,6 +675,7 @@ left:150%;
 
 
 
+
 .menu-panel.active{
 
 
@@ -630,6 +684,8 @@ left:150%;
 
 
 }
+
+
 
 
 
@@ -672,10 +728,13 @@ left:150%;
     color:var(--gold);
 
 
+
     text-align:center;
 
 
+
     letter-spacing:5px;
+
 
 
     margin-bottom:25px;
@@ -731,8 +790,6 @@ left:150%;
 
 
 
-
-
 /* =====================
        OVERLAY
 ===================== */
@@ -744,13 +801,17 @@ left:150%;
     position:fixed;
 
 
+
     inset:0;
+
 
 
     background:rgba(0,0,0,.75);
 
 
+
     z-index:15;
+
 
 
     display:none;
@@ -758,6 +819,7 @@ left:150%;
 
 
 }
+
 
 
 
@@ -779,26 +841,28 @@ left:150%;
 
 
 
-
 /* =====================
        CONTEÚDO
 ===================== */
 
 
-
 .content{
 
 
-    height:calc(100vh - 220px);
+    height:calc(100vh - 225px);
+
 
 
     display:flex;
 
 
+
     justify-content:center;
 
 
+
     align-items:center;
+
 
 
     color:#555;
@@ -830,7 +894,6 @@ PMX
 </div>
 
 
-
 <div class="tagline">
 
 A NEW STANDARD
@@ -839,6 +902,8 @@ A NEW STANDARD
 
 
 </div>
+
+
 
 
 
@@ -870,6 +935,7 @@ PMX
 </div>
 
 
+
 <div class="brand-subtitle">
 
 A NEW STANDARD
@@ -878,7 +944,9 @@ A NEW STANDARD
 
 
 
+
 <div class="brand-separator"></div>
+
 
 
 <div class="separator-star">
@@ -888,7 +956,9 @@ A NEW STANDARD
 </div>
 
 
+
 </div>
+
 
 
 
@@ -917,11 +987,13 @@ A NEW STANDARD
 <svg viewBox="0 0 24 24">
 
 
-<line x1="4" y1="7" x2="20" y2="7"/>
+<line x1="3" y1="7" x2="21" y2="7"/>
 
-<line x1="4" y1="12" x2="20" y2="12"/>
 
-<line x1="4" y1="17" x2="20" y2="17"/>
+<line x1="3" y1="12" x2="21" y2="12"/>
+
+
+<line x1="3" y1="17" x2="21" y2="17"/>
 
 
 </svg>
@@ -929,6 +1001,7 @@ A NEW STANDARD
 
 
 </div>
+
 
 
 
@@ -946,14 +1019,13 @@ A NEW STANDARD
 <svg viewBox="0 0 24 24">
 
 
-<path d="M3 5h2l2 10h10l3-7H7"/>
+<path d="M3 4h2l2.5 11h10l3-8H7"/>
 
 
 <circle cx="9" cy="19" r="1.5"/>
 
 
 <circle cx="17" cy="19" r="1.5"/>
-
 
 
 </svg>
@@ -976,16 +1048,26 @@ A NEW STANDARD
 
 
 
+
 <div class="content">
+
 
 Em breve...
 
+
+</div>
+
+
+
+
+
+
+
 </div>
 
 
 
 
-</div>
 
 
 
@@ -1001,6 +1083,7 @@ Em breve...
 <div class="panel menu-panel" id="menuPanel">
 
 
+
 <h2>
 
 PMX
@@ -1010,8 +1093,6 @@ PMX
 
 
 <div class="panel-line"></div>
-
-
 
 
 
@@ -1056,14 +1137,13 @@ Minha conta
 <svg viewBox="0 0 24 24">
 
 
-<path d="M3 5h2l2 10h10l3-7H7"/>
+<path d="M3 4h2l2.5 11h10l3-8H7"/>
 
 
 <circle cx="9" cy="19" r="1.5"/>
 
 
 <circle cx="17" cy="19" r="1.5"/>
-
 
 
 </svg>
@@ -1116,7 +1196,6 @@ Produtos
 
 
 
-
 <div class="menu-item">
 
 
@@ -1138,6 +1217,9 @@ Cursos
 
 
 </div>
+<!-- DESTAQUES -->
+
+
 <div class="menu-item">
 
 
@@ -1165,6 +1247,9 @@ Destaques
 
 
 
+
+
+<!-- SOBRE -->
 
 
 <div class="menu-item">
@@ -1202,6 +1287,9 @@ Sobre nós
 
 
 
+<!-- CONTATO -->
+
+
 <div class="menu-item">
 
 
@@ -1223,7 +1311,6 @@ Contato
 
 
 </div>
-
 
 
 
@@ -1258,7 +1345,9 @@ CARRINHO
 
 
 
+
 <div class="empty-cart">
+
 
 
 
@@ -1267,10 +1356,11 @@ CARRINHO
 <div class="cart-icon-box">
 
 
+
 <svg viewBox="0 0 24 24">
 
 
-<path d="M3 5h2l2 10h10l3-7H7"/>
+<path d="M3 4h2l2.5 11h10l3-8H7"/>
 
 
 <circle cx="9" cy="19" r="1.5"/>
@@ -1318,6 +1408,9 @@ Sua próxima escolha começa agora.
 
 
 
+
+
+
 <button class="button">
 
 EXPLORAR PRODUTOS
@@ -1328,7 +1421,6 @@ EXPLORAR PRODUTOS
 
 
 </div>
-
 
 
 
@@ -1392,8 +1484,6 @@ document.getElementById("overlay");
 
 
 
-
-
 function openMenu(){
 
 
@@ -1435,7 +1525,6 @@ overlay.classList.add("active");
 
 
 
-
 function closePanels(){
 
 
@@ -1456,8 +1545,8 @@ overlay.classList.remove("active");
 
 
 
-
-const items=document.querySelectorAll(".menu-item");
+const items =
+document.querySelectorAll(".menu-item");
 
 
 
@@ -1486,12 +1575,11 @@ item.style.color="#d4af37";
 item.style.transform="translateX(8px)";
 
 
-
 });
 
 
-
 });
+
 
 
 
