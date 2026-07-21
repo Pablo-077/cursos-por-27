@@ -14,19 +14,28 @@
 
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
+
 
 
 :root{
 
     --gold:#d4af37;
+
     --black:#000;
+
     --dark:#050505;
+
     --panel:#080808;
-    --text:#ffffff;
+
+    --white:#fff;
 
 }
 
@@ -35,6 +44,7 @@
 html,body{
 
     width:100%;
+
     height:100%;
 
     overflow:hidden;
@@ -47,9 +57,9 @@ html,body{
 
 body{
 
-    background:var(--black);
+    background:#000;
 
-    color:var(--text);
+    color:white;
 
     font-family:Arial, Helvetica, sans-serif;
 
@@ -84,13 +94,16 @@ body{
 
     color:var(--gold);
 
-    font-size:80px;
+    font-size:85px;
 
     font-weight:900;
 
-    letter-spacing:14px;
+    letter-spacing:15px;
 
-    animation:logoPulse 2s infinite alternate;
+    animation:logoIn 2s ease;
+
+    text-shadow:
+    0 0 25px rgba(212,175,55,.4);
 
 }
 
@@ -100,25 +113,25 @@ body{
 
     margin-top:15px;
 
-    letter-spacing:6px;
-
     color:#ddd;
 
-    font-size:14px;
+    font-size:13px;
 
-    animation:fadeIn 2s;
+    letter-spacing:8px;
+
+    animation:fade 2s;
 
 }
 
 
 
-@keyframes logoPulse{
+@keyframes logoIn{
 
     from{
 
-        opacity:.5;
+        opacity:0;
 
-        transform:scale(.96);
+        transform:scale(.8);
 
     }
 
@@ -135,7 +148,7 @@ body{
 
 
 
-@keyframes fadeIn{
+@keyframes fade{
 
     from{
 
@@ -168,8 +181,10 @@ body{
 
 
 
+
+
 /* =====================
-       TOPO PMX
+      TOPO PMX V3
 ===================== */
 
 
@@ -177,11 +192,22 @@ body{
 
     width:100%;
 
-    height:90px;
+    height:125px;
 
-    background:var(--dark);
+    background:
+
+    radial-gradient(
+    circle at center,
+    rgba(212,175,55,.12),
+    transparent 45%
+    ),
+
+    #050505;
+
 
     display:flex;
+
+    flex-direction:column;
 
     justify-content:center;
 
@@ -189,9 +215,13 @@ body{
 
     position:relative;
 
+    overflow:hidden;
+
 }
 
 
+
+/* brilho passando */
 
 .brand-bar::after{
 
@@ -199,16 +229,60 @@ body{
 
     position:absolute;
 
-    bottom:0;
+    top:0;
 
-    width:55%;
+    left:-100%;
 
-    height:1px;
+    width:60%;
 
-    background:var(--gold);
+    height:100%;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,.18),
+    transparent
+    );
+
+
+    animation:shine 5s infinite;
 
 }
 
+
+
+@keyframes shine{
+
+
+0%{
+
+    left:-100%;
+
+}
+
+
+50%{
+
+    left:150%;
+
+}
+
+
+100%{
+
+    left:150%;
+
+}
+
+
+}
+
+
+
+/* símbolo central */
 
 
 .brand-bar::before{
@@ -221,13 +295,16 @@ body{
 
     color:var(--gold);
 
-    background:var(--dark);
+    background:#050505;
 
-    padding:0 12px;
+    padding:0 15px;
 
-    font-size:12px;
+    font-size:14px;
 
 }
+
+
+
 
 
 
@@ -235,16 +312,37 @@ body{
 
     color:var(--gold);
 
-    font-size:38px;
+    font-size:48px;
 
     font-weight:900;
 
-    letter-spacing:12px;
+    letter-spacing:18px;
+
+    line-height:1;
+
+    text-shadow:
+
+    0 0 15px rgba(212,175,55,.45);
 
 }
 
 
 
+
+
+.brand-subtitle{
+
+    margin-top:12px;
+
+    color:#ddd;
+
+    font-size:11px;
+
+    letter-spacing:8px;
+
+    font-weight:300;
+
+}
 /* =====================
        NAVEGAÇÃO
 ===================== */
@@ -258,23 +356,25 @@ body{
 
     align-items:center;
 
-    padding:22px 25px;
+    padding:25px;
 
 }
 
 
 
+
+
 .icon-btn{
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
+
+    align-items:center;
 
     cursor:pointer;
 
@@ -292,7 +392,7 @@ body{
 
 
 
-svg{
+.icon-btn svg{
 
     width:100%;
 
@@ -309,7 +409,11 @@ svg{
     stroke-linejoin:round;
 
 }
- 
+
+
+
+
+
 /* =====================
        PAINÉIS
 ===================== */
@@ -329,13 +433,15 @@ svg{
 
     z-index:20;
 
-    padding:30px 25px;
+    padding:35px 25px;
 
     transition:.45s cubic-bezier(.4,0,.2,1);
 
-    box-shadow:0 0 40px rgba(0,0,0,.8);
+    box-shadow:0 0 50px rgba(0,0,0,.9);
 
 }
+
+
 
 
 
@@ -355,6 +461,8 @@ svg{
 
 
 
+
+
 .cart-panel{
 
     right:-320px;
@@ -371,17 +479,23 @@ svg{
 
 
 
+
+
 .panel h2{
 
     color:var(--gold);
 
     text-align:center;
 
-    letter-spacing:3px;
+    font-size:22px;
+
+    letter-spacing:5px;
 
     margin-bottom:25px;
 
 }
+
+
 
 
 
@@ -402,7 +516,7 @@ svg{
 
 
 /* =====================
-       ICONES MENU
+       ITENS MENU
 ===================== */
 
 
@@ -414,15 +528,15 @@ svg{
 
     gap:15px;
 
-    padding:15px 5px;
+    padding:16px 5px;
 
     margin:5px 0;
+
+    cursor:pointer;
 
     color:white;
 
     transition:.3s;
-
-    cursor:pointer;
 
 }
 
@@ -430,9 +544,9 @@ svg{
 
 .menu-item svg{
 
-    width:24px;
+    width:25px;
 
-    height:24px;
+    height:25px;
 
 }
 
@@ -448,8 +562,10 @@ svg{
 
 
 
+
+
 /* =====================
-       CARRINHO VAZIO
+       CARRINHO
 ===================== */
 
 
@@ -463,13 +579,23 @@ svg{
 
 
 
-.empty-cart svg{
+.cart-icon-box{
 
-    width:75px;
+    position:relative;
 
-    height:75px;
+    display:inline-block;
 
     margin-bottom:25px;
+
+}
+
+
+
+.cart-icon-box svg{
+
+    width:80px;
+
+    height:80px;
 
 }
 
@@ -481,17 +607,17 @@ svg{
 
     top:-15px;
 
-    right:-10px;
+    right:-12px;
 
-    width:25px;
+    width:28px;
 
-    height:25px;
+    height:28px;
+
+    border-radius:50%;
 
     background:var(--gold);
 
     color:#000;
-
-    border-radius:50%;
 
     display:flex;
 
@@ -499,17 +625,19 @@ svg{
 
     align-items:center;
 
-    font-weight:bold;
+    font-weight:900;
+
+    font-size:18px;
 
 }
 
 
 
-.cart-icon-box{
+.empty-cart p{
 
-    position:relative;
+    margin:8px 0;
 
-    display:inline-block;
+    color:#ddd;
 
 }
 
@@ -518,17 +646,17 @@ svg{
 
 .button{
 
-    margin-top:30px;
+    margin-top:35px;
 
-    padding:13px 30px;
-
-    border:1px solid var(--gold);
+    padding:14px 30px;
 
     background:transparent;
 
+    border:1px solid var(--gold);
+
     color:var(--gold);
 
-    letter-spacing:1px;
+    letter-spacing:2px;
 
     transition:.3s;
 
@@ -572,9 +700,6 @@ svg{
 
 
 
-/* =====================
-        CONTEÚDO
-===================== */
 
 
 .content{
@@ -590,9 +715,6 @@ svg{
     color:#555;
 
 }
-
-
-
 </style>
 
 </head>
@@ -601,22 +723,31 @@ svg{
 <body>
 
 
+
 <!-- LOADING -->
 
 
 <div class="loader" id="loader">
 
+
 <div class="logo-load">
+
 PMX
+
 </div>
 
 
 <div class="tagline">
+
 A NEW STANDARD
+
 </div>
 
 
 </div>
+
+
+
 
 
 
@@ -627,27 +758,58 @@ A NEW STANDARD
 <div class="home" id="home">
 
 
+
+
+
+
+<!-- TOPO PREMIUM -->
+
+
 <div class="brand-bar">
 
 
 <div class="logo">
+
 PMX
-</div>
-
 
 </div>
 
+
+
+<div class="brand-subtitle">
+
+A NEW STANDARD
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- NAVEGAÇÃO -->
 
 
 <div class="navigation">
 
 
-<!-- MENU SVG -->
+
+
+
+<!-- MENU -->
+
 
 <div class="icon-btn" onclick="openMenu()">
 
 
+
 <svg viewBox="0 0 24 24">
+
 
 <line x1="4" y1="7" x2="20" y2="7"/>
 
@@ -655,7 +817,10 @@ PMX
 
 <line x1="4" y1="17" x2="20" y2="17"/>
 
+
+
 </svg>
+
 
 
 </div>
@@ -664,7 +829,9 @@ PMX
 
 
 
-<!-- CARRINHO SVG -->
+
+
+<!-- CARRINHO -->
 
 
 <div class="icon-btn" onclick="openCart()">
@@ -683,6 +850,7 @@ PMX
 <circle cx="17" cy="19" r="1.5"/>
 
 
+
 </svg>
 
 
@@ -691,7 +859,14 @@ PMX
 
 
 
+
+
+
 </div>
+
+
+
+
 
 
 
@@ -703,14 +878,29 @@ Em breve...
 
 
 
+
 </div>
+
+
+
+
+
+
+
+
+
 <!-- MENU LATERAL -->
 
 
 <div class="panel menu-panel" id="menuPanel">
 
 
-<h2>PMX</h2>
+<h2>
+
+PMX
+
+</h2>
+
 
 
 <div class="panel-line"></div>
@@ -719,7 +909,10 @@ Em breve...
 
 
 
-<!-- MINHA CONTA -->
+
+
+
+<!-- CONTA -->
 
 
 <div class="menu-item">
@@ -727,16 +920,23 @@ Em breve...
 
 <svg viewBox="0 0 24 24">
 
+
 <circle cx="12" cy="8" r="4"/>
 
+
 <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+
 
 </svg>
 
 
+
 <span>
+
 Minha conta
+
 </span>
+
 
 
 </div>
@@ -755,11 +955,15 @@ Minha conta
 
 <svg viewBox="0 0 24 24">
 
+
 <path d="M3 5h2l2 10h10l3-7H7"/>
+
 
 <circle cx="9" cy="19" r="1.5"/>
 
+
 <circle cx="17" cy="19" r="1.5"/>
+
 
 
 </svg>
@@ -767,11 +971,14 @@ Minha conta
 
 
 <span>
+
 Carrinho
+
 </span>
 
 
 </div>
+
 
 
 
@@ -790,6 +997,7 @@ Carrinho
 
 <path d="M4 7h16v14H4z"/>
 
+
 <path d="M8 7V4h8v3"/>
 
 
@@ -798,12 +1006,13 @@ Carrinho
 
 
 <span>
+
 Produtos
+
 </span>
 
 
 </div>
-
 
 
 
@@ -827,7 +1036,9 @@ Produtos
 
 
 <span>
+
 Cursos
+
 </span>
 
 
@@ -848,25 +1059,21 @@ Cursos
 <svg viewBox="0 0 24 24">
 
 
-<path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21 7.5 13.5 2 9h7z"/>
+<path d="M12 2l3 7h7l-5 4 2 8-7-5-7 5 2-8-5-4h7z"/>
 
 
 </svg>
 
 
+
 <span>
+
 Destaques
+
 </span>
 
 
 </div>
-
-
-
-
-
-
-
 <!-- SOBRE -->
 
 
@@ -890,7 +1097,9 @@ Destaques
 
 
 <span>
+
 Sobre nós
+
 </span>
 
 
@@ -917,8 +1126,11 @@ Sobre nós
 </svg>
 
 
+
 <span>
+
 Contato
+
 </span>
 
 
@@ -935,15 +1147,17 @@ Contato
 
 
 
+
 <!-- CARRINHO LATERAL -->
 
 
 <div class="panel cart-panel" id="cartPanel">
 
 
-
 <h2>
-Carrinho
+
+CARRINHO
+
 </h2>
 
 
@@ -953,6 +1167,8 @@ Carrinho
 
 
 <div class="empty-cart">
+
+
 
 
 
@@ -977,6 +1193,7 @@ Carrinho
 
 
 
+
 <div class="cart-alert">
 
 !
@@ -990,15 +1207,22 @@ Carrinho
 
 
 
+
 <p>
+
 Nada por aqui ainda.
+
 </p>
 
 
 
 <p>
+
 Sua próxima escolha começa agora.
+
 </p>
+
+
 
 
 
@@ -1006,17 +1230,21 @@ Sua próxima escolha começa agora.
 
 <button class="button">
 
-Explorar produtos
+EXPLORAR PRODUTOS
 
 </button>
 
 
 
+
+
 </div>
 
 
 
 </div>
+
+
 
 
 
@@ -1027,7 +1255,17 @@ Explorar produtos
 
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
+
+
+
+
+
+
+
 <script>
+
+
+
 
 
 // =====================
@@ -1052,9 +1290,8 @@ document.getElementById("home").style.display="block";
 
 
 
-// =====================
+
 // ELEMENTOS
-// =====================
 
 
 const menuPanel = document.getElementById("menuPanel");
@@ -1069,9 +1306,7 @@ const overlay = document.getElementById("overlay");
 
 
 
-// =====================
 // ABRIR MENU
-// =====================
 
 
 function openMenu(){
@@ -1094,9 +1329,7 @@ overlay.classList.add("active");
 
 
 
-// =====================
 // ABRIR CARRINHO
-// =====================
 
 
 function openCart(){
@@ -1119,9 +1352,7 @@ overlay.classList.add("active");
 
 
 
-// =====================
-// FECHAR PAINÉIS
-// =====================
+// FECHAR
 
 
 function closePanels(){
@@ -1144,12 +1375,11 @@ overlay.classList.remove("active");
 
 
 
-// =====================
-// ANIMAÇÃO DOS ITENS
-// =====================
+// EFEITO NOS ITENS
 
 
-const items = document.querySelectorAll(".menu-item");
+const items=document.querySelectorAll(".menu-item");
+
 
 
 items.forEach(item=>{
@@ -1188,6 +1418,7 @@ item.style.transform="translateX(8px)";
 
 
 </script>
+
 
 
 </body>
