@@ -14,13 +14,9 @@
 
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
 
 
@@ -67,8 +63,10 @@ body{
 
 
 
+
+
 /* =====================
-        LOADING PMX
+        LOADING
 ===================== */
 
 
@@ -100,10 +98,10 @@ body{
 
     letter-spacing:15px;
 
-    animation:logoIn 2s ease;
-
     text-shadow:
-    0 0 25px rgba(212,175,55,.4);
+    0 0 25px rgba(212,175,55,.45);
+
+    animation:entrada 2s ease;
 
 }
 
@@ -115,23 +113,21 @@ body{
 
     color:#ddd;
 
-    font-size:13px;
-
     letter-spacing:8px;
 
-    animation:fade 2s;
+    font-size:13px;
 
 }
 
 
 
-@keyframes logoIn{
+@keyframes entrada{
 
     from{
 
         opacity:0;
 
-        transform:scale(.8);
+        transform:scale(.85);
 
     }
 
@@ -147,22 +143,6 @@ body{
 }
 
 
-
-@keyframes fade{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
 
 
 
@@ -183,8 +163,10 @@ body{
 
 
 
+
+
 /* =====================
-      TOPO PMX V3
+       TOPO PMX V4
 ===================== */
 
 
@@ -194,15 +176,17 @@ body{
 
     height:125px;
 
+
     background:
 
     radial-gradient(
     circle at center,
-    rgba(212,175,55,.12),
-    transparent 45%
+    rgba(212,175,55,.15),
+    transparent 48%
     ),
 
     #050505;
+
 
 
     display:flex;
@@ -218,6 +202,7 @@ body{
     overflow:hidden;
 
 }
+
 
 
 
@@ -243,7 +228,7 @@ body{
     linear-gradient(
     90deg,
     transparent,
-    rgba(212,175,55,.18),
+    rgba(212,175,55,.22),
     transparent
     );
 
@@ -256,33 +241,34 @@ body{
 
 @keyframes shine{
 
+    0%{
 
-0%{
+        left:-100%;
 
-    left:-100%;
-
-}
-
-
-50%{
-
-    left:150%;
-
-}
+    }
 
 
-100%{
+    50%{
 
-    left:150%;
+        left:150%;
 
-}
+    }
 
+
+    100%{
+
+        left:150%;
+
+    }
 
 }
 
 
 
-/* símbolo central */
+
+
+
+/* separação metálica PMX */
 
 
 .brand-bar::before{
@@ -291,17 +277,37 @@ body{
 
     position:absolute;
 
-    bottom:-9px;
+    bottom:-12px;
 
     color:var(--gold);
 
+    font-size:15px;
+
     background:#050505;
 
-    padding:0 15px;
+    padding:0 18px;
 
-    font-size:14px;
+    z-index:2;
 
 }
+
+
+
+
+
+
+
+/* linha difusa */
+
+
+.brand-bar{
+
+    box-shadow:
+
+    0 12px 25px rgba(212,175,55,.18);
+
+}
+
 
 
 
@@ -318,21 +324,18 @@ body{
 
     letter-spacing:18px;
 
-    line-height:1;
-
     text-shadow:
 
-    0 0 15px rgba(212,175,55,.45);
+    0 0 18px rgba(212,175,55,.5);
 
 }
 
 
 
 
-
 .brand-subtitle{
 
-    margin-top:12px;
+    margin-top:10px;
 
     color:#ddd;
 
@@ -340,11 +343,9 @@ body{
 
     letter-spacing:8px;
 
-    font-weight:300;
-
 }
 /* =====================
-       NAVEGAÇÃO
+       BARRA DE NAVEGAÇÃO
 ===================== */
 
 
@@ -414,8 +415,9 @@ body{
 
 
 
+
 /* =====================
-       PAINÉIS
+       PAINÉIS LATERAIS
 ===================== */
 
 
@@ -437,11 +439,11 @@ body{
 
     transition:.45s cubic-bezier(.4,0,.2,1);
 
-    box-shadow:0 0 50px rgba(0,0,0,.9);
+    box-shadow:
+
+    0 0 50px rgba(0,0,0,.9);
 
 }
-
-
 
 
 
@@ -481,13 +483,13 @@ body{
 
 
 
+
+
 .panel h2{
 
     color:var(--gold);
 
     text-align:center;
-
-    font-size:22px;
 
     letter-spacing:5px;
 
@@ -505,7 +507,15 @@ body{
 
     height:1px;
 
-    background:var(--gold);
+    background:
+
+    linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+    );
+
 
     margin-bottom:30px;
 
@@ -530,11 +540,9 @@ body{
 
     padding:16px 5px;
 
-    margin:5px 0;
+    color:white;
 
     cursor:pointer;
-
-    color:white;
 
     transition:.3s;
 
@@ -564,8 +572,10 @@ body{
 
 
 
+
+
 /* =====================
-       CARRINHO
+       CARRINHO VAZIO
 ===================== */
 
 
@@ -619,27 +629,16 @@ body{
 
     color:#000;
 
-    display:flex;
+    font-weight:900;
 
-    justify-content:center;
+    display:flex;
 
     align-items:center;
 
-    font-weight:900;
-
-    font-size:18px;
+    justify-content:center;
 
 }
 
-
-
-.empty-cart p{
-
-    margin:8px 0;
-
-    color:#ddd;
-
-}
 
 
 
@@ -652,25 +651,14 @@ body{
 
     background:transparent;
 
-    border:1px solid var(--gold);
-
     color:var(--gold);
+
+    border:1px solid var(--gold);
 
     letter-spacing:2px;
 
-    transition:.3s;
-
 }
 
-
-
-.button:active{
-
-    background:var(--gold);
-
-    color:#000;
-
-}
 
 
 
@@ -702,6 +690,7 @@ body{
 
 
 
+
 .content{
 
     height:calc(100vh - 160px);
@@ -721,6 +710,8 @@ body{
 
 
 <body>
+
+
 
 
 
@@ -752,6 +743,7 @@ A NEW STANDARD
 
 
 
+
 <!-- HOME -->
 
 
@@ -761,8 +753,7 @@ A NEW STANDARD
 
 
 
-
-<!-- TOPO PREMIUM -->
+<!-- TOPO -->
 
 
 <div class="brand-bar">
@@ -792,10 +783,11 @@ A NEW STANDARD
 
 
 
-<!-- NAVEGAÇÃO -->
+<!-- BARRINHA -->
 
 
 <div class="navigation">
+
 
 
 
@@ -861,8 +853,9 @@ A NEW STANDARD
 
 
 
-
 </div>
+
+
 
 
 
@@ -875,6 +868,8 @@ A NEW STANDARD
 Em breve...
 
 </div>
+
+
 
 
 
@@ -911,7 +906,6 @@ PMX
 
 
 
-
 <!-- CONTA -->
 
 
@@ -930,13 +924,11 @@ PMX
 </svg>
 
 
-
 <span>
 
 Minha conta
 
 </span>
-
 
 
 </div>
@@ -963,7 +955,6 @@ Minha conta
 
 
 <circle cx="17" cy="19" r="1.5"/>
-
 
 
 </svg>
@@ -1019,6 +1010,8 @@ Produtos
 
 
 
+
+
 <!-- CURSOS -->
 
 
@@ -1043,13 +1036,6 @@ Cursos
 
 
 </div>
-
-
-
-
-
-
-
 <!-- DESTAQUES -->
 
 
@@ -1059,7 +1045,7 @@ Cursos
 <svg viewBox="0 0 24 24">
 
 
-<path d="M12 2l3 7h7l-5 4 2 8-7-5-7 5 2-8-5-4h7z"/>
+<path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21 7.5 13.5 2 9h7z"/>
 
 
 </svg>
@@ -1074,6 +1060,13 @@ Destaques
 
 
 </div>
+
+
+
+
+
+
+
 <!-- SOBRE -->
 
 
@@ -1138,6 +1131,8 @@ Contato
 
 
 
+
+
 </div>
 
 
@@ -1148,7 +1143,8 @@ Contato
 
 
 
-<!-- CARRINHO LATERAL -->
+
+<!-- CARRINHO -->
 
 
 <div class="panel cart-panel" id="cartPanel">
@@ -1161,12 +1157,16 @@ CARRINHO
 </h2>
 
 
+
 <div class="panel-line"></div>
 
 
 
 
+
+
 <div class="empty-cart">
+
 
 
 
@@ -1194,6 +1194,7 @@ CARRINHO
 
 
 
+
 <div class="cart-alert">
 
 !
@@ -1203,6 +1204,9 @@ CARRINHO
 
 
 </div>
+
+
+
 
 
 
@@ -1227,7 +1231,6 @@ Sua próxima escolha começa agora.
 
 
 
-
 <button class="button">
 
 EXPLORAR PRODUTOS
@@ -1242,6 +1245,7 @@ EXPLORAR PRODUTOS
 
 
 
+
 </div>
 
 
@@ -1251,7 +1255,8 @@ EXPLORAR PRODUTOS
 
 
 
-<!-- OVERLAY -->
+
+<!-- FUNDO -->
 
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
@@ -1268,9 +1273,7 @@ EXPLORAR PRODUTOS
 
 
 
-// =====================
 // LOADING
-// =====================
 
 
 setTimeout(()=>{
@@ -1290,23 +1293,23 @@ document.getElementById("home").style.display="block";
 
 
 
-
 // ELEMENTOS
 
 
-const menuPanel = document.getElementById("menuPanel");
+const menuPanel=document.getElementById("menuPanel");
 
-const cartPanel = document.getElementById("cartPanel");
+const cartPanel=document.getElementById("cartPanel");
 
-const overlay = document.getElementById("overlay");
-
-
+const overlay=document.getElementById("overlay");
 
 
 
 
 
-// ABRIR MENU
+
+
+
+// MENU
 
 
 function openMenu(){
@@ -1329,7 +1332,7 @@ overlay.classList.add("active");
 
 
 
-// ABRIR CARRINHO
+// CARRINHO
 
 
 function openCart(){
@@ -1375,7 +1378,7 @@ overlay.classList.remove("active");
 
 
 
-// EFEITO NOS ITENS
+// SELEÇÃO MENU
 
 
 const items=document.querySelectorAll(".menu-item");
@@ -1416,12 +1419,13 @@ item.style.transform="translateX(8px)";
 
 
 
-
 </script>
 
 
 
-</body>
 
+
+
+</body>
 
 </html>
