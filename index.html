@@ -7,16 +7,30 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>PMX - A new standard</title>
+<title>PMX - A New Standard</title>
 
 
 <style>
+
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
+
+:root{
+
+    --gold:#d4af37;
+    --black:#000;
+    --dark:#050505;
+    --panel:#080808;
+    --text:#ffffff;
+
+}
+
+
 
 html,body{
 
@@ -30,19 +44,21 @@ html,body{
 }
 
 
+
 body{
 
-    background:#000;
+    background:var(--black);
 
-    color:white;
+    color:var(--text);
 
     font-family:Arial, Helvetica, sans-serif;
 
 }
 
 
+
 /* =====================
-        LOADING
+        LOADING PMX
 ===================== */
 
 
@@ -58,31 +74,83 @@ body{
 
     align-items:center;
 
+    background:#000;
+
 }
+
 
 
 .logo-load{
 
-    color:#d4af37;
+    color:var(--gold);
 
     font-size:80px;
 
     font-weight:900;
 
-    letter-spacing:12px;
+    letter-spacing:14px;
+
+    animation:logoPulse 2s infinite alternate;
 
 }
+
 
 
 .tagline{
 
     margin-top:15px;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
     color:#ddd;
 
+    font-size:14px;
+
+    animation:fadeIn 2s;
+
 }
+
+
+
+@keyframes logoPulse{
+
+    from{
+
+        opacity:.5;
+
+        transform:scale(.96);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
 
 
 /* =====================
@@ -99,8 +167,9 @@ body{
 }
 
 
+
 /* =====================
-      TOPO PMX
+       TOPO PMX
 ===================== */
 
 
@@ -110,7 +179,7 @@ body{
 
     height:90px;
 
-    background:#050505;
+    background:var(--dark);
 
     display:flex;
 
@@ -121,6 +190,7 @@ body{
     position:relative;
 
 }
+
 
 
 .brand-bar::after{
@@ -135,9 +205,10 @@ body{
 
     height:1px;
 
-    background:#d4af37;
+    background:var(--gold);
 
 }
+
 
 
 .brand-bar::before{
@@ -146,30 +217,32 @@ body{
 
     position:absolute;
 
-    bottom:-8px;
+    bottom:-9px;
 
-    color:#d4af37;
+    color:var(--gold);
 
-    background:#050505;
+    background:var(--dark);
 
-    padding:0 10px;
+    padding:0 12px;
 
     font-size:12px;
 
 }
 
 
+
 .logo{
 
-    color:#d4af37;
+    color:var(--gold);
 
     font-size:38px;
 
     font-weight:900;
 
-    letter-spacing:10px;
+    letter-spacing:12px;
 
 }
+
 
 
 /* =====================
@@ -190,44 +263,18 @@ body{
 }
 
 
-/* MENU */
 
+.icon-btn{
 
-.menu-btn{
+    width:38px;
 
-    cursor:pointer;
+    height:38px;
 
-    transition:.3s;
+    display:flex;
 
-}
+    align-items:center;
 
-
-.menu-btn:active{
-
-    transform:translateY(-4px);
-
-}
-
-
-.menu-btn span{
-
-    display:block;
-
-    width:30px;
-
-    height:3px;
-
-    background:#d4af37;
-
-    margin:6px 0;
-
-}
-
-
-/* CARRINHO */
-
-
-.cart-btn{
+    justify-content:center;
 
     cursor:pointer;
 
@@ -236,20 +283,34 @@ body{
 }
 
 
-.cart-btn:active{
 
-    transform:translateY(-4px);
+.icon-btn:active{
+
+    transform:translateY(-4px) scale(.95);
 
 }
 
 
-.cart-btn svg{
 
-    width:34px;
+svg{
 
-    stroke:#d4af37;
+    width:100%;
 
-}/* =====================
+    height:100%;
+
+    stroke:var(--gold);
+
+    fill:none;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+}
+ 
+/* =====================
        PAINÉIS
 ===================== */
 
@@ -262,24 +323,28 @@ body{
 
     height:100vh;
 
-    width:290px;
+    width:300px;
 
-    background:#080808;
+    background:var(--panel);
 
     z-index:20;
 
     padding:30px 25px;
 
-    transition:.4s;
+    transition:.45s cubic-bezier(.4,0,.2,1);
+
+    box-shadow:0 0 40px rgba(0,0,0,.8);
 
 }
+
 
 
 .menu-panel{
 
-    left:-310px;
+    left:-320px;
 
 }
+
 
 
 .menu-panel.active{
@@ -292,9 +357,10 @@ body{
 
 .cart-panel{
 
-    right:-310px;
+    right:-320px;
 
 }
+
 
 
 .cart-panel.active{
@@ -307,9 +373,11 @@ body{
 
 .panel h2{
 
-    color:#d4af37;
+    color:var(--gold);
 
     text-align:center;
+
+    letter-spacing:3px;
 
     margin-bottom:25px;
 
@@ -323,33 +391,9 @@ body{
 
     height:1px;
 
-    background:#d4af37;
+    background:var(--gold);
 
-    margin-bottom:35px;
-
-}
-
-
-
-/* OPÇÕES MENU */
-
-
-.option{
-
-    padding:15px 5px;
-
-    margin:8px 0;
-
-    transition:.3s;
-
-}
-
-
-.option:active{
-
-    color:#d4af37;
-
-    transform:translateX(8px);
+    margin-bottom:30px;
 
 }
 
@@ -358,7 +402,54 @@ body{
 
 
 /* =====================
-        CARRINHO
+       ICONES MENU
+===================== */
+
+
+.menu-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 5px;
+
+    margin:5px 0;
+
+    color:white;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+
+
+.menu-item svg{
+
+    width:24px;
+
+    height:24px;
+
+}
+
+
+
+.menu-item:active{
+
+    color:var(--gold);
+
+    transform:translateX(8px);
+
+}
+
+
+
+/* =====================
+       CARRINHO VAZIO
 ===================== */
 
 
@@ -366,58 +457,62 @@ body{
 
     text-align:center;
 
-    margin-top:80px;
+    margin-top:70px;
 
 }
 
 
-/* NOVO ÍCONE CARRINHO */
 
+.empty-cart svg{
 
-.empty-icon{
+    width:75px;
 
-    position:relative;
-
-    display:inline-block;
-
-    font-size:55px;
-
-    color:#d4af37;
+    height:75px;
 
     margin-bottom:25px;
 
 }
 
 
-.alert{
+
+.cart-alert{
 
     position:absolute;
 
-    top:-18px;
+    top:-15px;
 
-    right:-12px;
+    right:-10px;
 
-    width:24px;
+    width:25px;
 
-    height:24px;
+    height:25px;
 
-    border-radius:50%;
-
-    background:#d4af37;
+    background:var(--gold);
 
     color:#000;
 
-    font-size:18px;
-
-    font-weight:900;
+    border-radius:50%;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
+    align-items:center;
+
+    font-weight:bold;
+
 }
+
+
+
+.cart-icon-box{
+
+    position:relative;
+
+    display:inline-block;
+
+}
+
 
 
 
@@ -425,22 +520,25 @@ body{
 
     margin-top:30px;
 
-    padding:12px 25px;
+    padding:13px 30px;
 
-    border:1px solid #d4af37;
-
-    color:#d4af37;
+    border:1px solid var(--gold);
 
     background:transparent;
+
+    color:var(--gold);
+
+    letter-spacing:1px;
 
     transition:.3s;
 
 }
 
 
+
 .button:active{
 
-    background:#d4af37;
+    background:var(--gold);
 
     color:#000;
 
@@ -456,13 +554,14 @@ body{
 
     inset:0;
 
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.75);
 
     z-index:15;
 
     display:none;
 
 }
+
 
 
 .overlay.active{
@@ -473,9 +572,14 @@ body{
 
 
 
+/* =====================
+        CONTEÚDO
+===================== */
 
 
 .content{
+
+    height:calc(100vh - 160px);
 
     display:flex;
 
@@ -483,19 +587,18 @@ body{
 
     align-items:center;
 
-    height:calc(100vh - 160px);
-
     color:#555;
 
 }
 
 
+
 </style>
+
 </head>
 
 
 <body>
-
 
 
 <!-- LOADING -->
@@ -503,13 +606,15 @@ body{
 
 <div class="loader" id="loader">
 
-    <div class="logo-load">
-        PMX
-    </div>
+<div class="logo-load">
+PMX
+</div>
 
-    <div class="tagline">
-        A NEW STANDARD
-    </div>
+
+<div class="tagline">
+A NEW STANDARD
+</div>
+
 
 </div>
 
@@ -525,42 +630,30 @@ body{
 <div class="brand-bar">
 
 
-    <div class="logo">
-        PMX
-    </div>
+<div class="logo">
+PMX
+</div>
 
 
 </div>
+
 
 
 <div class="navigation">
 
 
-<div class="menu-btn" onclick="openMenu()">
+<!-- MENU SVG -->
 
-<span></span>
-<span></span>
-<span></span>
-
-</div>
+<div class="icon-btn" onclick="openMenu()">
 
 
+<svg viewBox="0 0 24 24">
 
+<line x1="4" y1="7" x2="20" y2="7"/>
 
-<div class="cart-btn" onclick="openCart()">
+<line x1="4" y1="12" x2="20" y2="12"/>
 
-
-<svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-
-
-<path d="M3 3h2l2 12h11l3-8H7"/>
-
-
-<circle cx="9" cy="20" r="1.5"/>
-
-
-<circle cx="17" cy="20" r="1.5"/>
-
+<line x1="4" y1="17" x2="20" y2="17"/>
 
 </svg>
 
@@ -568,14 +661,46 @@ body{
 </div>
 
 
+
+
+
+<!-- CARRINHO SVG -->
+
+
+<div class="icon-btn" onclick="openCart()">
+
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M3 5h2l2 10h10l3-7H7"/>
+
+
+<circle cx="9" cy="19" r="1.5"/>
+
+
+<circle cx="17" cy="19" r="1.5"/>
+
+
+</svg>
+
+
+
 </div>
+
+
+
+</div>
+
 
 
 <div class="content">
 
-    Em breve...
+Em breve...
 
 </div>
+
 
 
 </div>
@@ -585,47 +710,33 @@ body{
 <div class="panel menu-panel" id="menuPanel">
 
 
-    <h2>PMX</h2>
+<h2>PMX</h2>
 
 
-    <div class="panel-line"></div>
+<div class="panel-line"></div>
 
 
 
-    <div class="option">
-        👤 Minha conta
-    </div>
 
 
-    <div class="option">
-        🛒 Carrinho
-    </div>
+<!-- MINHA CONTA -->
 
 
-    <div class="option">
-        Produtos
-    </div>
+<div class="menu-item">
 
 
-    <div class="option">
-        Cursos
-    </div>
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="8" r="4"/>
+
+<path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+
+</svg>
 
 
-    <div class="option">
-        Destaques
-    </div>
-
-
-    <div class="option">
-        Sobre nós
-    </div>
-
-
-    <div class="option">
-        Contato
-    </div>
-
+<span>
+Minha conta
+</span>
 
 
 </div>
@@ -639,13 +750,201 @@ body{
 <!-- CARRINHO -->
 
 
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M3 5h2l2 10h10l3-7H7"/>
+
+<circle cx="9" cy="19" r="1.5"/>
+
+<circle cx="17" cy="19" r="1.5"/>
+
+
+</svg>
+
+
+
+<span>
+Carrinho
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- PRODUTOS -->
+
+
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M4 7h16v14H4z"/>
+
+<path d="M8 7V4h8v3"/>
+
+
+</svg>
+
+
+
+<span>
+Produtos
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CURSOS -->
+
+
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<polygon points="5,3 19,12 5,21"/>
+
+
+</svg>
+
+
+
+<span>
+Cursos
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- DESTAQUES -->
+
+
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21 7.5 13.5 2 9h7z"/>
+
+
+</svg>
+
+
+<span>
+Destaques
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- SOBRE -->
+
+
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<circle cx="12" cy="12" r="10"/>
+
+
+<line x1="12" y1="10" x2="12" y2="17"/>
+
+
+<circle cx="12" cy="7" r="1"/>
+
+
+</svg>
+
+
+
+<span>
+Sobre nós
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- CONTATO -->
+
+
+<div class="menu-item">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M4 4h16v12H7l-3 4z"/>
+
+
+</svg>
+
+
+<span>
+Contato
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- CARRINHO LATERAL -->
+
+
 <div class="panel cart-panel" id="cartPanel">
 
 
-<h2>
-    🛒 Carrinho
-</h2>
 
+<h2>
+Carrinho
+</h2>
 
 
 <div class="panel-line"></div>
@@ -656,30 +955,58 @@ body{
 <div class="empty-cart">
 
 
-<div class="empty-icon">
 
-    🛒
-    <span class="alert">!</span>
+<div class="cart-icon-box">
+
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M3 5h2l2 10h10l3-7H7"/>
+
+
+<circle cx="9" cy="19" r="1.5"/>
+
+
+<circle cx="17" cy="19" r="1.5"/>
+
+
+
+</svg>
+
+
+
+<div class="cart-alert">
+
+!
 
 </div>
 
 
 
-<p>
-    Nada por aqui ainda.
-</p>
+</div>
+
+
 
 
 <p>
-    Sua próxima escolha começa agora.
+Nada por aqui ainda.
 </p>
+
+
+
+<p>
+Sua próxima escolha começa agora.
+</p>
+
 
 
 
 
 <button class="button">
 
-    Explorar produtos
+Explorar produtos
 
 </button>
 
@@ -696,32 +1023,25 @@ body{
 
 
 
+<!-- OVERLAY -->
 
-
-<!-- FUNDO -->
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
-
-
-
-
-
-
 <script>
 
 
 // =====================
-// LOADING 3 SEGUNDOS
+// LOADING
 // =====================
 
 
 setTimeout(()=>{
 
 
-    document.getElementById("loader").style.display="none";
+document.getElementById("loader").style.display="none";
 
 
-    document.getElementById("home").style.display="block";
+document.getElementById("home").style.display="block";
 
 
 },3000);
@@ -732,7 +1052,9 @@ setTimeout(()=>{
 
 
 
+// =====================
 // ELEMENTOS
+// =====================
 
 
 const menuPanel = document.getElementById("menuPanel");
@@ -747,19 +1069,21 @@ const overlay = document.getElementById("overlay");
 
 
 
-// MENU
+// =====================
+// ABRIR MENU
+// =====================
 
 
 function openMenu(){
 
 
-    cartPanel.classList.remove("active");
+cartPanel.classList.remove("active");
 
 
-    menuPanel.classList.add("active");
+menuPanel.classList.add("active");
 
 
-    overlay.classList.add("active");
+overlay.classList.add("active");
 
 
 }
@@ -770,19 +1094,21 @@ function openMenu(){
 
 
 
-// CARRINHO
+// =====================
+// ABRIR CARRINHO
+// =====================
 
 
 function openCart(){
 
 
-    menuPanel.classList.remove("active");
+menuPanel.classList.remove("active");
 
 
-    cartPanel.classList.add("active");
+cartPanel.classList.add("active");
 
 
-    overlay.classList.add("active");
+overlay.classList.add("active");
 
 
 }
@@ -793,19 +1119,21 @@ function openCart(){
 
 
 
-// FECHAR
+// =====================
+// FECHAR PAINÉIS
+// =====================
 
 
 function closePanels(){
 
 
-    menuPanel.classList.remove("active");
+menuPanel.classList.remove("active");
 
 
-    cartPanel.classList.remove("active");
+cartPanel.classList.remove("active");
 
 
-    overlay.classList.remove("active");
+overlay.classList.remove("active");
 
 
 }
@@ -816,39 +1144,41 @@ function closePanels(){
 
 
 
-// OPÇÕES MENU
+// =====================
+// ANIMAÇÃO DOS ITENS
+// =====================
 
 
-const options = document.querySelectorAll(".option");
+const items = document.querySelectorAll(".menu-item");
+
+
+items.forEach(item=>{
+
+
+item.addEventListener("click",()=>{
+
+
+items.forEach(i=>{
+
+
+i.style.color="white";
+
+
+i.style.transform="translateX(0)";
+
+
+});
 
 
 
-options.forEach(option=>{
+item.style.color="#d4af37";
 
 
-    option.addEventListener("click",()=>{
-
-
-        options.forEach(item=>{
-
-
-            item.style.color="white";
-
-            item.style.transform="translateX(0)";
-
-
-        });
+item.style.transform="translateX(8px)";
 
 
 
-        option.style.color="#d4af37";
-
-
-        option.style.transform="translateX(8px)";
-
-
-    });
-
+});
 
 
 });
@@ -860,7 +1190,7 @@ options.forEach(option=>{
 </script>
 
 
-
 </body>
+
 
 </html>
