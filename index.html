@@ -1,857 +1,857 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+    <!DOCTYPE html>
+    <html lang="pt-BR">
 
-<head>
+    <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<title>PMX - A New Standard</title>
+    <title>PMX - A New Standard</title>
 
-<style>
+    <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-:root{
-    --gold:#d4af37;
-    --black:#000;
-    --panel:#080808;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    touch-action:manipulation;
-}
-
-body{
-    background:#000;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-/* =====================
-        LOADING
-===================== */
-
-.loader{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:#000;
-}
-
-.logo-load{
-    color:var(--gold);
-    font-size:85px;
-    font-weight:900;
-    letter-spacing:15px;
-    animation:logoIn 1.8s ease;
-    text-shadow:0 0 30px rgba(212,175,55,.6);
-}
-
-.tagline{
-    margin-top:15px;
-    letter-spacing:7px;
-    color:#ddd;
-    opacity:0;
-    animation:tagIn 1.5s forwards;
-    animation-delay:.5s;
-}
-
-@keyframes logoIn{
-    from{opacity:0;transform:scale(.7);}
-    to{opacity:1;transform:scale(1);}
-}
-
-@keyframes tagIn{
-    to{opacity:1;}
-}
-
-/* =====================
-        HOME
-===================== */
-
-.home{
-    display:none;
-    height:100vh;
-}
-
-/* =====================
-       TOPO PMX
-===================== */
-
-.brand-bar{
-    height:145px;
-    width:100%;
-    background:
-        radial-gradient(circle at center,rgba(212,175,55,.18),transparent 55%),
-        linear-gradient(180deg,#090909,#020202);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.brand-bar::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:60%;
-    height:100%;
-    background:
-        linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);
-    animation:shine 5s infinite;
-}
-
-@keyframes shine{
-    0%{left:-100%;}
-    50%{left:130%;}
-    100%{left:130%;}
-}
-
-.logo{
-    color:var(--gold);
-    font-size:52px;
-    font-weight:900;
-    letter-spacing:22px;
-    text-shadow:0 0 25px rgba(212,175,55,.5);
-}
-
-.brand-subtitle{
-    margin-top:12px;
-    font-size:12px;
-    letter-spacing:9px;
-    color:#ddd;
-}
-
-.brand-separator{
-    position:absolute;
-    bottom:-1px;
-    width:70%;
-    height:2px;
-    background:
-        linear-gradient(90deg,transparent,var(--gold),transparent);
-    box-shadow:0 0 15px rgba(212,175,55,.8);
-}
-
-.separator-star{
-    position:absolute;
-    bottom:-9px;
-    background:#050505;
-    color:var(--gold);
-    padding:0 15px;
-    font-size:15px;
-}
-
-/* =====================
-       BARRINHA PMX
-===================== */
-
-.navigation{
-    width:100%;
-    height:80px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 28px;
-}
-
-.icon-btn{
-    width:48px;
-    height:48px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    position:relative;
-    z-index:5;
-    transition:.3s;
-}
-
-.icon-btn svg{
-    width:34px;
-    height:34px;
-    display:block;
-    stroke:#d4af37;
-    fill:none;
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-}
-
-.icon-btn:active{
-    transform:translateY(-4px) scale(.95);
-}
-
-/* =====================
-       PAINÃIS
-===================== */
-
-.panel{
-    position:fixed;
-    top:0;
-    width:300px;
-    height:100vh;
-    background:#080808;
-    z-index:20;
-    padding:35px 25px;
-    transition:.4s ease;
-    box-shadow:0 0 40px rgba(0,0,0,.8);
-}
-
-.menu-panel{
-    left:-320px;
-}
-
-.menu-panel.active{
-    left:0;
-}
-
-.cart-panel{
-    right:-320px;
-}
-
-.cart-panel.active{
-    right:0;
-}
-
-.panel h2{
-    color:var(--gold);
-    text-align:center;
-    letter-spacing:5px;
-    margin-bottom:25px;
-}
-
-.panel-line{
-    width:100%;
-    height:1px;
-    background:
-        linear-gradient(90deg,transparent,var(--gold),transparent);
-    margin-bottom:30px;
-}
-
-/* =====================
-       MENU LATERAL
-===================== */
-
-.menu-panel{
-    top:50%;
-    left:0;
-    width:min(54vw,250px);
-    height:auto;
-    max-height:calc(100vh - 100px);
-    padding:28px 18px 24px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    border-radius:0 18px 18px 0;
-    border:1px solid rgba(255,255,255,.16);
-    border-left:0;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(18,18,18,.98),
-            rgba(5,5,5,.985) 55%,
-            rgba(12,12,12,.98)
-        );
-    box-shadow:
-        10px 0 35px rgba(0,0,0,.55),
-        inset -1px 0 0 rgba(255,255,255,.05);
-    transform:translate(-110%,-50%);
-    transition:transform .4s cubic-bezier(.22,.8,.25,1);
-}
-
-.menu-panel.active{
-    left:0;
-    transform:translate(0,-50%);
-}
-
-.menu-panel h2{
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:7px;
-    margin:0 0 18px;
-    padding-left:7px;
-    text-align:center;
-    color:var(--gold);
-    text-shadow:0 0 12px rgba(212,175,55,.18);
-}
-
-.menu-panel .panel-line{
-    height:1px;
-    margin:0 0 12px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(212,175,55,.20),
-            transparent
-        );
-}
-
-.menu-item{
-    position:relative;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    width:100%;
-    min-height:66px;
-    padding:0 10px;
-    margin:0;
-    color:#f4f4f4;
-    border-radius:0;
-    border-bottom:1px solid rgba(255,255,255,.055);
-    cursor:pointer;
-    user-select:none;
-    -webkit-tap-highlight-color:transparent;
-    transition:
-        color .25s ease,
-        background .25s ease,
-        opacity .35s ease;
-}
-
-.menu-item[data-page="favoritos"],
-.menu-item[data-page="sobre"]{
-    border-bottom:0;
-}
-
-.menu-item svg{
-    width:27px;
-    height:27px;
-    flex:0 0 27px;
-    display:block;
-    stroke:var(--gold);
-    fill:none;
-    stroke-width:1.9;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    transition:
-        transform .25s ease,
-        filter .25s ease;
-}
-
-.menu-item svg text{
-    fill:var(--gold);
-    stroke:none;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:5.5px;
-    font-weight:700;
-    letter-spacing:.3px;
-}
-
-.menu-item span{
-    font-size:16px;
-    font-weight:400;
-    line-height:1.2;
-    letter-spacing:0;
-    white-space:nowrap;
-}
-
-.menu-item::before{
-    content:"";
-    position:absolute;
-    left:-18px;
-    top:12px;
-    bottom:12px;
-    width:5px;
-    border-radius:0 2px 2px 0;
-    background:var(--gold);
-    box-shadow:0 0 16px rgba(212,175,55,.75);
-    opacity:0;
-    transition:opacity .25s ease;
-}
-
-.menu-item:active,
-.menu-item.active{
-    color:var(--gold);
-    background:
-        linear-gradient(
-            90deg,
-            rgba(212,175,55,.12),
-            rgba(212,175,55,.025) 58%,
-            transparent 82%
-        );
-    transform:none;
-}
-
-.menu-item.active::before{
-    opacity:1;
-    animation:pmxBarGlow 2.2s ease-in-out infinite;
-}
-
-.menu-item:active svg,
-.menu-item.active svg{
-    transform:scale(1.05);
-    filter:drop-shadow(0 0 7px rgba(212,175,55,.72));
-}
-
-.menu-item.active span{
-    text-shadow:0 0 10px rgba(212,175,55,.28);
-}
-
-@keyframes pmxBarGlow{
-    0%,100%{
-        box-shadow:0 0 7px rgba(212,175,55,.42);
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
     }
-    50%{
-        box-shadow:0 0 17px rgba(212,175,55,.92);
+
+    :root{
+        --gold:#d4af37;
+        --black:#000;
+        --panel:#080808;
     }
-}
-
-.menu-divider{
-    position:relative;
-    width:100%;
-    height:28px;
-    margin:0;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(212,175,55,.60),
-            transparent
-        ) center/100% 1px no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.menu-divider span{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:28px;
-    height:28px;
-    background:#080808;
-    color:var(--gold);
-    font-size:15px;
-    line-height:1;
-    text-shadow:0 0 8px rgba(212,175,55,.45);
-}
-
-.menu-item.menu-enter{
-    opacity:0;
-    transform:translateX(-12px);
-}
-
-.menu-panel.active .menu-item.menu-enter{
-    opacity:1;
-    transform:translateX(0);
-}
 
-.menu-panel.active .menu-item:nth-child(3){transition-delay:.03s}
-.menu-panel.active .menu-item:nth-child(4){transition-delay:.06s}
-.menu-panel.active .menu-item:nth-child(5){transition-delay:.09s}
-.menu-panel.active .menu-item:nth-child(6){transition-delay:.12s}
-.menu-panel.active .menu-item:nth-child(7){transition-delay:.15s}
-.menu-panel.active .menu-item:nth-child(9){transition-delay:.18s}
-.menu-panel.active .menu-item:nth-child(10){transition-delay:.21s}
-.menu-panel.active .menu-item:nth-child(11){transition-delay:.24s}
+    html,body{
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        touch-action:manipulation;
+    }
+
+    body{
+        background:#000;
+        color:white;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    /* =====================
+            LOADING
+    ===================== */
+
+    .loader{
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background:#000;
+    }
+
+    .logo-load{
+        color:var(--gold);
+        font-size:85px;
+        font-weight:900;
+        letter-spacing:15px;
+        animation:logoIn 1.8s ease;
+        text-shadow:0 0 30px rgba(212,175,55,.6);
+    }
+
+    .tagline{
+        margin-top:15px;
+        letter-spacing:7px;
+        color:#ddd;
+        opacity:0;
+        animation:tagIn 1.5s forwards;
+        animation-delay:.5s;
+    }
+
+    @keyframes logoIn{
+        from{opacity:0;transform:scale(.7);}
+        to{opacity:1;transform:scale(1);}
+    }
+
+    @keyframes tagIn{
+        to{opacity:1;}
+    }
+
+    /* =====================
+            HOME
+    ===================== */
+
+    .home{
+        display:none;
+        height:100vh;
+    }
+
+    /* =====================
+           TOPO PMX
+    ===================== */
+
+    .brand-bar{
+        height:145px;
+        width:100%;
+        background:
+            radial-gradient(circle at center,rgba(212,175,55,.18),transparent 55%),
+            linear-gradient(180deg,#090909,#020202);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        position:relative;
+        overflow:hidden;
+    }
+
+    .brand-bar::after{
+        content:"";
+        position:absolute;
+        top:0;
+        left:-100%;
+        width:60%;
+        height:100%;
+        background:
+            linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);
+        animation:shine 5s infinite;
+    }
+
+    @keyframes shine{
+        0%{left:-100%;}
+        50%{left:130%;}
+        100%{left:130%;}
+    }
+
+    .logo{
+        color:var(--gold);
+        font-size:52px;
+        font-weight:900;
+        letter-spacing:22px;
+        text-shadow:0 0 25px rgba(212,175,55,.5);
+    }
+
+    .brand-subtitle{
+        margin-top:12px;
+        font-size:12px;
+        letter-spacing:9px;
+        color:#ddd;
+    }
+
+    .brand-separator{
+        position:absolute;
+        bottom:-1px;
+        width:70%;
+        height:2px;
+        background:
+            linear-gradient(90deg,transparent,var(--gold),transparent);
+        box-shadow:0 0 15px rgba(212,175,55,.8);
+    }
+
+    .separator-star{
+        position:absolute;
+        bottom:-9px;
+        background:#050505;
+        color:var(--gold);
+        padding:0 15px;
+        font-size:15px;
+    }
+
+    /* =====================
+           BARRINHA PMX
+    ===================== */
+
+    .navigation{
+        width:100%;
+        height:80px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:0 28px;
+    }
+
+    .icon-btn{
+        width:48px;
+        height:48px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        position:relative;
+        z-index:5;
+        transition:.3s;
+    }
+
+    .icon-btn svg{
+        width:34px;
+        height:34px;
+        display:block;
+        stroke:#d4af37;
+        fill:none;
+        stroke-width:2;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+    }
+
+    .icon-btn:active{
+        transform:translateY(-4px) scale(.95);
+    }
+
+    /* =====================
+           PAINÃIS
+    ===================== */
+
+    .panel{
+        position:fixed;
+        top:0;
+        width:300px;
+        height:100vh;
+        background:#080808;
+        z-index:20;
+        padding:35px 25px;
+        transition:.4s ease;
+        box-shadow:0 0 40px rgba(0,0,0,.8);
+    }
+
+    .menu-panel{
+        left:-320px;
+    }
+
+    .menu-panel.active{
+        left:0;
+    }
+
+    .cart-panel{
+        right:-320px;
+    }
+
+    .cart-panel.active{
+        right:0;
+    }
+
+    .panel h2{
+        color:var(--gold);
+        text-align:center;
+        letter-spacing:5px;
+        margin-bottom:25px;
+    }
+
+    .panel-line{
+        width:100%;
+        height:1px;
+        background:
+            linear-gradient(90deg,transparent,var(--gold),transparent);
+        margin-bottom:30px;
+    }
+
+    /* =====================
+           MENU LATERAL
+    ===================== */
+
+    .menu-panel{
+        top:50%;
+        left:0;
+        width:min(54vw,250px);
+        height:auto;
+        max-height:calc(100vh - 100px);
+        padding:28px 18px 24px;
+        overflow-y:auto;
+        overflow-x:hidden;
+        border-radius:0 18px 18px 0;
+        border:1px solid rgba(255,255,255,.16);
+        border-left:0;
+        background:
+            linear-gradient(
+                135deg,
+                rgba(18,18,18,.98),
+                rgba(5,5,5,.985) 55%,
+                rgba(12,12,12,.98)
+            );
+        box-shadow:
+            10px 0 35px rgba(0,0,0,.55),
+            inset -1px 0 0 rgba(255,255,255,.05);
+        transform:translate(-110%,-50%);
+        transition:transform .4s cubic-bezier(.22,.8,.25,1);
+    }
+
+    .menu-panel.active{
+        left:0;
+        transform:translate(0,-50%);
+    }
+
+    .menu-panel h2{
+        font-size:22px;
+        font-weight:700;
+        letter-spacing:7px;
+        margin:0 0 18px;
+        padding-left:7px;
+        text-align:center;
+        color:var(--gold);
+        text-shadow:0 0 12px rgba(212,175,55,.18);
+    }
+
+    .menu-panel .panel-line{
+        height:1px;
+        margin:0 0 12px;
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(212,175,55,.20),
+                transparent
+            );
+    }
+
+    .menu-item{
+        position:relative;
+        display:flex;
+        align-items:center;
+        gap:20px;
+        width:100%;
+        min-height:66px;
+        padding:0 10px;
+        margin:0;
+        color:#f4f4f4;
+        border-radius:0;
+        border-bottom:1px solid rgba(255,255,255,.055);
+        cursor:pointer;
+        user-select:none;
+        -webkit-tap-highlight-color:transparent;
+        transition:
+            color .25s ease,
+            background .25s ease,
+            opacity .35s ease;
+    }
+
+    .menu-item[data-page="favoritos"],
+    .menu-item[data-page="sobre"]{
+        border-bottom:0;
+    }
+
+    .menu-item svg{
+        width:27px;
+        height:27px;
+        flex:0 0 27px;
+        display:block;
+        stroke:var(--gold);
+        fill:none;
+        stroke-width:1.9;
+        stroke-linecap:round;
+        stroke-linejoin:round;
+        transition:
+            transform .25s ease,
+            filter .25s ease;
+    }
+
+    .menu-item svg text{
+        fill:var(--gold);
+        stroke:none;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:5.5px;
+        font-weight:700;
+        letter-spacing:.3px;
+    }
+
+    .menu-item span{
+        font-size:16px;
+        font-weight:400;
+        line-height:1.2;
+        letter-spacing:0;
+        white-space:nowrap;
+    }
+
+    .menu-item::before{
+        content:"";
+        position:absolute;
+        left:-18px;
+        top:12px;
+        bottom:12px;
+        width:5px;
+        border-radius:0 2px 2px 0;
+        background:var(--gold);
+        box-shadow:0 0 16px rgba(212,175,55,.75);
+        opacity:0;
+        transition:opacity .25s ease;
+    }
+
+    .menu-item:active,
+    .menu-item.active{
+        color:var(--gold);
+        background:
+            linear-gradient(
+                90deg,
+                rgba(212,175,55,.12),
+                rgba(212,175,55,.025) 58%,
+                transparent 82%
+            );
+        transform:none;
+    }
+
+    .menu-item.active::before{
+        opacity:1;
+        animation:pmxBarGlow 2.2s ease-in-out infinite;
+    }
+
+    .menu-item:active svg,
+    .menu-item.active svg{
+        transform:scale(1.05);
+        filter:drop-shadow(0 0 7px rgba(212,175,55,.72));
+    }
+
+    .menu-item.active span{
+        text-shadow:0 0 10px rgba(212,175,55,.28);
+    }
+
+    @keyframes pmxBarGlow{
+        0%,100%{
+            box-shadow:0 0 7px rgba(212,175,55,.42);
+        }
+        50%{
+            box-shadow:0 0 17px rgba(212,175,55,.92);
+        }
+    }
+
+    .menu-divider{
+        position:relative;
+        width:100%;
+        height:28px;
+        margin:0;
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(212,175,55,.60),
+                transparent
+            ) center/100% 1px no-repeat;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .menu-divider span{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:28px;
+        height:28px;
+        background:#080808;
+        color:var(--gold);
+        font-size:15px;
+        line-height:1;
+        text-shadow:0 0 8px rgba(212,175,55,.45);
+    }
+
+    .menu-item.menu-enter{
+        opacity:0;
+        transform:translateX(-12px);
+    }
+
+    .menu-panel.active .menu-item.menu-enter{
+        opacity:1;
+        transform:translateX(0);
+    }
+
+    .menu-panel.active .menu-item:nth-child(3){transition-delay:.03s}
+    .menu-panel.active .menu-item:nth-child(4){transition-delay:.06s}
+    .menu-panel.active .menu-item:nth-child(5){transition-delay:.09s}
+    .menu-panel.active .menu-item:nth-child(6){transition-delay:.12s}
+    .menu-panel.active .menu-item:nth-child(7){transition-delay:.15s}
+    .menu-panel.active .menu-item:nth-child(9){transition-delay:.18s}
+    .menu-panel.active .menu-item:nth-child(10){transition-delay:.21s}
+    .menu-panel.active .menu-item:nth-child(11){transition-delay:.24s}
+
+    /* =====================
+           OVERLAY
+    ===================== */
+
+    .overlay{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.75);
+        z-index:15;
+        display:none;
+    }
+
+    .overlay.active{
+        display:block;
+    }
+
+    /* =====================
+           CONTEÃDO
+    ===================== */
+
+    .content{
+        height:calc(100vh - 225px);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:#555;
+    }
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <!-- LOADING -->
+
+    <div class="loader" id="loader">
+
+    <div class="logo-load">
+    PMX
+    </div>
+
+    <div class="tagline">
+    A NEW STANDARD
+    </div>
+
+    </div>
+
+    <!-- HOME -->
+
+    <div class="home" id="home">
+
+    <!-- TOPO -->
+
+    <div class="brand-bar">
+
+    <div class="logo">
+    PMX
+    </div>
+
+    <div class="brand-subtitle">
+    A NEW STANDARD
+    </div>
+
+    <div class="brand-separator"></div>
+
+    <div class="separator-star">
+    &#10022;
+    </div>
+
+    </div>
+
+    <!-- BARRINHA -->
+
+    <div class="navigation">
+
+    <!-- MENU -->
+
+    <div class="icon-btn" onclick="openMenu()">
+
+    <svg viewBox="0 0 24 24">
+
+    <line x1="3" y1="7" x2="21" y2="7"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="17" x2="21" y2="17"/>
+
+    </svg>
+
+    </div>
+
+    <!-- CARRINHO -->
+
+    <div class="icon-btn" onclick="openCart()">
+
+    <svg viewBox="0 0 24 24">
+
+    <path d="M3 4h2l2.5 11h10l3-8H7"/>
+    <circle cx="9" cy="19" r="1.5"/>
+    <circle cx="17" cy="19" r="1.5"/>
+
+    </svg>
+
+    </div>
+
+    </div>
+
+    <div class="content">
+    Em breve...
+    </div>
+
+    </div>
+
+    <!-- MENU LATERAL -->
+
+    <div class="panel menu-panel" id="menuPanel">
+
+    <h2>PMX</h2>
+
+    <div class="panel-line"></div>
+
+    <div class="menu-item menu-enter" data-page="inicio">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M3.5 10.5 12 3l8.5 7.5"/>
+    <path d="M5.5 9.5V21h13V9.5"/>
+    <path d="M9.5 21v-7h5v7"/>
+
+    </svg>
+
+    <span>In&#237;cio</span>
+
+    </div>
+
+    <div class="menu-item menu-enter" data-page="produtos">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M5 8.5h14l-1.2 12H6.2z"/>
+    <path d="M8 8.5a4 4 0 0 1 8 0"/>
+    <path d="M9 12h.01M15 12h.01"/>
+
+    </svg>
+
+    <span>Explorar produtos</span>
+
+    </div>
+
+    <div class="menu-item menu-enter" data-page="categorias">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M4 4h8v8H4z"/>
+    <path d="M12 12h8v8h-8z"/>
+    <path d="M14 4h6v6h-6z"/>
+    <path d="M4 14h6v6H4z"/>
+
+    </svg>
+
+    <span>Categorias</span>
+
+    </div>
+
+    <div class="menu-item menu-enter" data-page="ofertas">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M13.5 2.5 5.5 13h6l-1 8.5L18.5 11h-6z"/>
+
+    </svg>
+
+    <span>Ofertas</span>
+
+    </div>
+
+    <div class="menu-item menu-enter" data-page="favoritos">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <path d="M12 20.2S4 15.6 4 9.3A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8 3.3c0 6.3-8 10.9-8 10.9z"/>
+
+    </svg>
+
+    <span>Favoritos</span>
+
+    </div>
+
+    <div class="menu-divider">
+
+    <span>&#10022;</span>
+
+    </div>
+
+    <div class="menu-item menu-enter" data-page="conta">
+
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <circle cx="12" cy="7.5" r="3.5"/>
+    <path d="M4.5 21c.8-4.2 3.3-6.3 7.5-6.3s6.7 2.1 7.5 6.3"/>
+
+    </svg>
+
+    <span>Minha conta</span>
 
-/* =====================
-       OVERLAY
-===================== */
+    </div>
 
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    z-index:15;
-    display:none;
-}
+    <div class="menu-item menu-enter" data-page="suporte">
 
-.overlay.active{
-    display:block;
-}
+    <svg viewBox="0 0 24 24" aria-hidden="true">
 
-/* =====================
-       CONTEÃDO
-===================== */
+    <path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H11l-5 4v-4H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+    <path d="M7 9h10M7 12.5h7"/>
 
-.content{
-    height:calc(100vh - 225px);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#555;
-}
+    </svg>
 
-</style>
+    <span>Suporte</span>
 
-</head>
+    </div>
 
-<body>
+    <div class="menu-item menu-enter" data-page="sobre">
 
-<!-- LOADING -->
+    <svg viewBox="0 0 24 24" aria-hidden="true">
 
-<div class="loader" id="loader">
+    <path d="M12 2.5 19.5 5v6.1c0 5-3 8.7-7.5 10.4-4.5-1.7-7.5-5.4-7.5-10.4V5z"/>
+    <text x="12" y="13.5" text-anchor="middle">PMX</text>
 
-<div class="logo-load">
-PMX
-</div>
+    </svg>
 
-<div class="tagline">
-A NEW STANDARD
-</div>
+    <span>Sobre a PMX</span>
 
-</div>
+    </div>
 
-<!-- HOME -->
+    </div>
 
-<div class="home" id="home">
+    <!-- CARRINHO -->
 
-<!-- TOPO -->
+    <div class="panel cart-panel" id="cartPanel">
 
-<div class="brand-bar">
+    <h2>
+    CARRINHO
+    </h2>
 
-<div class="logo">
-PMX
-</div>
+    <div class="panel-line"></div>
 
-<div class="brand-subtitle">
-A NEW STANDARD
-</div>
+    <div class="empty-cart">
 
-<div class="brand-separator"></div>
+    <div class="cart-icon-box">
 
-<div class="separator-star">
-&#10022;
-</div>
+    <svg viewBox="0 0 24 24">
 
-</div>
+    <path d="M3 4h2l2.5 11h10l3-8H7"/>
+    <circle cx="9" cy="19" r="1.5"/>
+    <circle cx="17" cy="19" r="1.5"/>
 
-<!-- BARRINHA -->
+    </svg>
 
-<div class="navigation">
+    <div class="cart-alert">
+    !
+    </div>
 
-<!-- MENU -->
+    </div>
 
-<div class="icon-btn" onclick="openMenu()">
+    <p>
+    Nada por aqui ainda.
+    </p>
 
-<svg viewBox="0 0 24 24">
+    <p>
+    Sua prÃ³xima escolha comeÃ§a agora.
+    </p>
 
-<line x1="3" y1="7" x2="21" y2="7"/>
-<line x1="3" y1="12" x2="21" y2="12"/>
-<line x1="3" y1="17" x2="21" y2="17"/>
+    <button class="button">
+    EXPLORAR PRODUTOS
+    </button>
 
-</svg>
+    </div>
 
-</div>
+    </div>
 
-<!-- CARRINHO -->
+    <div class="overlay" id="overlay" onclick="closePanels()"></div>
 
-<div class="icon-btn" onclick="openCart()">
+    <script>
 
-<svg viewBox="0 0 24 24">
+    // LOADING
 
-<path d="M3 4h2l2.5 11h10l3-8H7"/>
-<circle cx="9" cy="19" r="1.5"/>
-<circle cx="17" cy="19" r="1.5"/>
+    setTimeout(()=>{
 
-</svg>
+    document.getElementById("loader").style.display="none";
 
-</div>
+    document.getElementById("home").style.display="block";
 
-</div>
+    },3000);
 
-<div class="content">
-Em breve...
-</div>
+    const menuPanel =
+    document.getElementById("menuPanel");
 
-</div>
+    const cartPanel =
+    document.getElementById("cartPanel");
 
-<!-- MENU LATERAL -->
+    const overlay =
+    document.getElementById("overlay");
 
-<div class="panel menu-panel" id="menuPanel">
+    function openMenu(){
 
-<h2>PMX</h2>
+    cartPanel.classList.remove("active");
 
-<div class="panel-line"></div>
+    menuPanel.classList.add("active");
 
-<div class="menu-item menu-enter" data-page="inicio">
+    overlay.classList.add("active");
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    }
 
-<path d="M3.5 10.5 12 3l8.5 7.5"/>
-<path d="M5.5 9.5V21h13V9.5"/>
-<path d="M9.5 21v-7h5v7"/>
+    function openCart(){
 
-</svg>
+    menuPanel.classList.remove("active");
 
-<span>In&#237;cio</span>
+    cartPanel.classList.add("active");
 
-</div>
+    overlay.classList.add("active");
 
-<div class="menu-item menu-enter" data-page="produtos">
+    }
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    function closePanels(){
 
-<path d="M5 8.5h14l-1.2 12H6.2z"/>
-<path d="M8 8.5a4 4 0 0 1 8 0"/>
-<path d="M9 12h.01M15 12h.01"/>
+    menuPanel.classList.remove("active");
 
-</svg>
+    cartPanel.classList.remove("active");
 
-<span>Explorar produtos</span>
+    overlay.classList.remove("active");
 
-</div>
+    }
 
-<div class="menu-item menu-enter" data-page="categorias">
+    const items =
+    document.querySelectorAll(".menu-item");
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    /* MantÃ©m a opÃ§Ã£o escolhida mesmo depois de fechar e reabrir o menu. */
 
-<path d="M4 4h8v8H4z"/>
-<path d="M12 12h8v8h-8z"/>
-<path d="M14 4h6v6h-6z"/>
-<path d="M4 14h6v6H4z"/>
+    const savedPage =
+    localStorage.getItem("pmxSelectedPage") || "inicio";
 
-</svg>
+    items.forEach(item=>{
 
-<span>Categorias</span>
+    item.classList.toggle(
+    "active",
+    item.dataset.page === savedPage
+    );
 
-</div>
+    });
 
-<div class="menu-item menu-enter" data-page="ofertas">
+    document.body.dataset.pmxPage = savedPage;
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    items.forEach(item=>{
 
-<path d="M13.5 2.5 5.5 13h6l-1 8.5L18.5 11h-6z"/>
+    item.addEventListener("click",()=>{
 
-</svg>
+    items.forEach(i=>
+    i.classList.remove("active")
+    );
 
-<span>Ofertas</span>
+    item.classList.add("active");
 
-</div>
+    const page =
+    item.dataset.page;
 
-<div class="menu-item menu-enter" data-page="favoritos">
+    localStorage.setItem(
+    "pmxSelectedPage",
+    page
+    );
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    document.body.dataset.pmxPage =
+    page;
 
-<path d="M12 20.2S4 15.6 4 9.3A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8 3.3c0 6.3-8 10.9-8 10.9z"/>
+    window.dispatchEvent(
 
-</svg>
+    new CustomEvent(
+    "pmx:navigate",
+    {detail:{page}}
+    )
 
-<span>Favoritos</span>
+    );
 
-</div>
+    /* Fecha o menu mantendo a opÃ§Ã£o selecionada. */
 
-<div class="menu-divider">
+    setTimeout(()=>{
 
-<span>&#10022;</span>
+    closePanels();
 
-</div>
+    },180);
 
-<div class="menu-item menu-enter" data-page="conta">
+    });
 
-<svg viewBox="0 0 24 24" aria-hidden="true">
+    });
 
-<circle cx="12" cy="7.5" r="3.5"/>
-<path d="M4.5 21c.8-4.2 3.3-6.3 7.5-6.3s6.7 2.1 7.5 6.3"/>
+    </script>
 
-</svg>
+    </body>
 
-<span>Minha conta</span>
-
-</div>
-
-<div class="menu-item menu-enter" data-page="suporte">
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H11l-5 4v-4H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
-<path d="M7 9h10M7 12.5h7"/>
-
-</svg>
-
-<span>Suporte</span>
-
-</div>
-
-<div class="menu-item menu-enter" data-page="sobre">
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<path d="M12 2.5 19.5 5v6.1c0 5-3 8.7-7.5 10.4-4.5-1.7-7.5-5.4-7.5-10.4V5z"/>
-<text x="12" y="13.5" text-anchor="middle">PMX</text>
-
-</svg>
-
-<span>Sobre a PMX</span>
-
-</div>
-
-</div>
-
-<!-- CARRINHO -->
-
-<div class="panel cart-panel" id="cartPanel">
-
-<h2>
-CARRINHO
-</h2>
-
-<div class="panel-line"></div>
-
-<div class="empty-cart">
-
-<div class="cart-icon-box">
-
-<svg viewBox="0 0 24 24">
-
-<path d="M3 4h2l2.5 11h10l3-8H7"/>
-<circle cx="9" cy="19" r="1.5"/>
-<circle cx="17" cy="19" r="1.5"/>
-
-</svg>
-
-<div class="cart-alert">
-!
-</div>
-
-</div>
-
-<p>
-Nada por aqui ainda.
-</p>
-
-<p>
-Sua prÃ³xima escolha comeÃ§a agora.
-</p>
-
-<button class="button">
-EXPLORAR PRODUTOS
-</button>
-
-</div>
-
-</div>
-
-<div class="overlay" id="overlay" onclick="closePanels()"></div>
-
-<script>
-
-// LOADING
-
-setTimeout(()=>{
-
-document.getElementById("loader").style.display="none";
-
-document.getElementById("home").style.display="block";
-
-},3000);
-
-const menuPanel =
-document.getElementById("menuPanel");
-
-const cartPanel =
-document.getElementById("cartPanel");
-
-const overlay =
-document.getElementById("overlay");
-
-function openMenu(){
-
-cartPanel.classList.remove("active");
-
-menuPanel.classList.add("active");
-
-overlay.classList.add("active");
-
-}
-
-function openCart(){
-
-menuPanel.classList.remove("active");
-
-cartPanel.classList.add("active");
-
-overlay.classList.add("active");
-
-}
-
-function closePanels(){
-
-menuPanel.classList.remove("active");
-
-cartPanel.classList.remove("active");
-
-overlay.classList.remove("active");
-
-}
-
-const items =
-document.querySelectorAll(".menu-item");
-
-/* MantÃ©m a opÃ§Ã£o escolhida mesmo depois de fechar e reabrir o menu. */
-
-const savedPage =
-localStorage.getItem("pmxSelectedPage") || "inicio";
-
-items.forEach(item=>{
-
-item.classList.toggle(
-"active",
-item.dataset.page === savedPage
-);
-
-});
-
-document.body.dataset.pmxPage = savedPage;
-
-items.forEach(item=>{
-
-item.addEventListener("click",()=>{
-
-items.forEach(i=>
-i.classList.remove("active")
-);
-
-item.classList.add("active");
-
-const page =
-item.dataset.page;
-
-localStorage.setItem(
-"pmxSelectedPage",
-page
-);
-
-document.body.dataset.pmxPage =
-page;
-
-window.dispatchEvent(
-
-new CustomEvent(
-"pmx:navigate",
-{detail:{page}}
-)
-
-);
-
-/* Fecha o menu mantendo a opÃ§Ã£o selecionada. */
-
-setTimeout(()=>{
-
-closePanels();
-
-},180);
-
-});
-
-});
-
-</script>
-
-</body>
-
-</html>
+    </html>
