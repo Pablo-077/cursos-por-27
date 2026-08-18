@@ -9,800 +9,248 @@
 
 <title>PMX - A New Standard</title>
 
-
 <style>
 
-
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
 
-
-
 :root{
-
     --gold:#d4af37;
     --black:#000;
     --panel:#080808;
-
 }
-
-
 
 html,body{
-
     width:100%;
     height:100%;
-
     overflow:hidden;
-
     touch-action:manipulation;
-
 }
-
-
 
 body{
-
     background:#000;
-
     color:white;
-
     font-family:Arial, Helvetica, sans-serif;
-
 }
-
-
-
-
-
 
 /* =====================
         LOADING
 ===================== */
 
-
 .loader{
-
     height:100vh;
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
     background:#000;
-
 }
-
-
 
 .logo-load{
-
     color:var(--gold);
-
     font-size:85px;
-
     font-weight:900;
-
     letter-spacing:15px;
-
     animation:logoIn 1.8s ease;
-
-    text-shadow:
-
-    0 0 30px rgba(212,175,55,.6);
-
+    text-shadow:0 0 30px rgba(212,175,55,.6);
 }
-
-
-
-
 
 .tagline{
-
     margin-top:15px;
-
     letter-spacing:7px;
-
     color:#ddd;
-
     opacity:0;
-
     animation:tagIn 1.5s forwards;
-
     animation-delay:.5s;
-
 }
-
-
-
-
 
 @keyframes logoIn{
-
-
-from{
-
-opacity:0;
-
-transform:scale(.7);
-
+    from{opacity:0;transform:scale(.7);}
+    to{opacity:1;transform:scale(1);}
 }
-
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-
-}
-
-
-
-
 
 @keyframes tagIn{
-
-
-to{
-
-opacity:1;
-
+    to{opacity:1;}
 }
-
-
-}
-
-
-
-
-
-
-
-
-
 
 /* =====================
         HOME
 ===================== */
 
-
 .home{
-
     display:none;
-
     height:100vh;
-
 }
-
-
-
-
-
-
-
-
-
 
 /* =====================
        TOPO PMX
 ===================== */
 
-
 .brand-bar{
-
-
-height:145px;
-
-
-width:100%;
-
-
-
-background:
-
-
-radial-gradient(
-
-circle at center,
-
-rgba(212,175,55,.18),
-
-transparent 55%
-
-),
-
-
-
-linear-gradient(
-
-180deg,
-
-#090909,
-
-#020202
-
-);
-
-
-
-display:flex;
-
-
-flex-direction:column;
-
-
-justify-content:center;
-
-
-align-items:center;
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-
+    height:145px;
+    width:100%;
+    background:
+        radial-gradient(circle at center,rgba(212,175,55,.18),transparent 55%),
+        linear-gradient(180deg,#090909,#020202);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
 }
-
-
-
-
-
-
-/* brilho passando */
-
 
 .brand-bar::after{
-
-
-content:"";
-
-
-position:absolute;
-
-
-top:0;
-
-
-left:-100%;
-
-
-width:60%;
-
-
-height:100%;
-
-
-
-background:
-
-
-linear-gradient(
-
-90deg,
-
-transparent,
-
-rgba(212,175,55,.3),
-
-transparent
-
-);
-
-
-
-animation:shine 5s infinite;
-
-
-
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:
+        linear-gradient(90deg,transparent,rgba(212,175,55,.3),transparent);
+    animation:shine 5s infinite;
 }
-
-
-
-
 
 @keyframes shine{
-
-
-0%{
-
-left:-100%;
-
+    0%{left:-100%;}
+    50%{left:130%;}
+    100%{left:130%;}
 }
-
-
-50%{
-
-left:130%;
-
-}
-
-
-100%{
-
-left:130%;
-
-}
-
-
-}
-
-
-
-
-
-
 
 .logo{
-
-
-color:var(--gold);
-
-
-font-size:52px;
-
-
-font-weight:900;
-
-
-letter-spacing:22px;
-
-
-
-text-shadow:
-
-
-0 0 25px rgba(212,175,55,.5);
-
-
-
+    color:var(--gold);
+    font-size:52px;
+    font-weight:900;
+    letter-spacing:22px;
+    text-shadow:0 0 25px rgba(212,175,55,.5);
 }
-
-
-
-
-
-
 
 .brand-subtitle{
-
-
-margin-top:12px;
-
-
-font-size:12px;
-
-
-letter-spacing:9px;
-
-
-color:#ddd;
-
-
-
+    margin-top:12px;
+    font-size:12px;
+    letter-spacing:9px;
+    color:#ddd;
 }
-
-
-
-
-
 
 .brand-separator{
-
-
-position:absolute;
-
-
-bottom:-1px;
-
-
-width:70%;
-
-
-height:2px;
-
-
-
-background:
-
-
-linear-gradient(
-
-90deg,
-
-transparent,
-
-var(--gold),
-
-transparent
-
-);
-
-
-
-box-shadow:
-
-
-0 0 15px rgba(212,175,55,.8);
-
-
-
+    position:absolute;
+    bottom:-1px;
+    width:70%;
+    height:2px;
+    background:
+        linear-gradient(90deg,transparent,var(--gold),transparent);
+    box-shadow:0 0 15px rgba(212,175,55,.8);
 }
-
-
-
-
-
 
 .separator-star{
-
-
-position:absolute;
-
-
-bottom:-9px;
-
-
-background:#050505;
-
-
-color:var(--gold);
-
-
-padding:0 15px;
-
-
-font-size:15px;
-
-
-
+    position:absolute;
+    bottom:-9px;
+    background:#050505;
+    color:var(--gold);
+    padding:0 15px;
+    font-size:15px;
 }
+
 /* =====================
        BARRINHA PMX
 ===================== */
 
-
 .navigation{
-
-
     width:100%;
-
-
     height:80px;
-
-
-
     display:flex;
-
-
     justify-content:space-between;
-
-
     align-items:center;
-
-
-
     padding:0 28px;
-
-
-
 }
-
-
-
-
-
 
 .icon-btn{
-
-
     width:48px;
-
-
     height:48px;
-
-
-
     display:flex;
-
-
     align-items:center;
-
-
     justify-content:center;
-
-
-
     cursor:pointer;
-
-
-
     position:relative;
-
-
-
     z-index:5;
-
-
-
     transition:.3s;
-
-
-
 }
-
-
-
-
-
 
 .icon-btn svg{
-
-
     width:34px;
-
-
     height:34px;
-
-
-
     display:block;
-
-
-
     stroke:#d4af37;
-
-
-
     fill:none;
-
-
-
     stroke-width:2;
-
-
-
     stroke-linecap:round;
-
-
-
     stroke-linejoin:round;
-
-
-
 }
-
-
-
-
-
 
 .icon-btn:active{
-
-
     transform:translateY(-4px) scale(.95);
-
-
-
 }
 
-
-
-
-
-
-
-
-
 /* =====================
-       PAINÃÂIS
+       PAINÃIS
 ===================== */
-
 
 .panel{
-
-
     position:fixed;
-
-
-
     top:0;
-
-
-
     width:300px;
-
-
-
     height:100vh;
-
-
-
     background:#080808;
-
-
-
     z-index:20;
-
-
-
     padding:35px 25px;
-
-
-
     transition:.4s ease;
-
-
-
-    box-shadow:
-
-    0 0 40px rgba(0,0,0,.8);
-
-
-
+    box-shadow:0 0 40px rgba(0,0,0,.8);
 }
-
-
-
-
-
 
 .menu-panel{
-
-
     left:-320px;
-
-
-
 }
-
-
-
-
-
 
 .menu-panel.active{
-
-
     left:0;
-
-
-
 }
-
-
-
-
-
-
-
 
 .cart-panel{
-
-
     right:-320px;
-
-
-
 }
-
-
-
-
-
 
 .cart-panel.active{
-
-
     right:0;
-
-
-
 }
-
-
-
-
-
-
-
 
 .panel h2{
-
-
     color:var(--gold);
-
-
-
     text-align:center;
-
-
-
     letter-spacing:5px;
-
-
-
     margin-bottom:25px;
-
-
-
 }
-
-
-
-
-
-
-
 
 .panel-line{
-
-
     width:100%;
-
-
     height:1px;
-
-
-
     background:
-
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    var(--gold),
-
-    transparent
-
-    );
-
-
-
+        linear-gradient(90deg,transparent,var(--gold),transparent);
     margin-bottom:30px;
-
-
-
 }
 
-
-
-
-
-
-
-
 /* =====================
-       MENU LATERAL - NOVA MECÃÂNICA
-===================== */
-
-/* =====================
-       MENU LATERAL - VISUAL PMX
+       MENU LATERAL
 ===================== */
 
 .menu-panel{
-    top:225px;
+    top:198px;
     left:0;
     width:min(54vw,250px);
-    height:calc(100vh - 225px);
+    height:calc(100vh - 198px);
     padding:28px 18px 24px;
     overflow-y:auto;
     overflow-x:hidden;
@@ -810,7 +258,12 @@ font-size:15px;
     border:1px solid rgba(255,255,255,.16);
     border-left:0;
     background:
-        linear-gradient(135deg,rgba(18,18,18,.98),rgba(5,5,5,.985) 55%,rgba(12,12,12,.98));
+        linear-gradient(
+            135deg,
+            rgba(18,18,18,.98),
+            rgba(5,5,5,.985) 55%,
+            rgba(12,12,12,.98)
+        );
     box-shadow:
         10px 0 35px rgba(0,0,0,.55),
         inset -1px 0 0 rgba(255,255,255,.05);
@@ -837,7 +290,13 @@ font-size:15px;
 .menu-panel .panel-line{
     height:1px;
     margin:0 0 12px;
-    background:linear-gradient(90deg,transparent,rgba(212,175,55,.20),transparent);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.20),
+            transparent
+        );
 }
 
 .menu-item{
@@ -855,7 +314,10 @@ font-size:15px;
     cursor:pointer;
     user-select:none;
     -webkit-tap-highlight-color:transparent;
-    transition:color .25s ease, background .25s ease, opacity .35s ease;
+    transition:
+        color .25s ease,
+        background .25s ease,
+        opacity .35s ease;
 }
 
 .menu-item[data-page="favoritos"],
@@ -873,7 +335,9 @@ font-size:15px;
     stroke-width:1.9;
     stroke-linecap:round;
     stroke-linejoin:round;
-    transition:transform .25s ease, filter .25s ease;
+    transition:
+        transform .25s ease,
+        filter .25s ease;
 }
 
 .menu-item svg text{
@@ -910,18 +374,38 @@ font-size:15px;
 .menu-item:active,
 .menu-item.active{
     color:var(--gold);
-    background:linear-gradient(90deg,rgba(212,175,55,.09),transparent 78%);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(212,175,55,.12),
+            rgba(212,175,55,.025) 58%,
+            transparent 82%
+        );
     transform:none;
 }
 
 .menu-item.active::before{
     opacity:1;
+    animation:pmxBarGlow 2.2s ease-in-out infinite;
 }
 
 .menu-item:active svg,
 .menu-item.active svg{
-    transform:scale(1.04);
-    filter:drop-shadow(0 0 6px rgba(212,175,55,.55));
+    transform:scale(1.05);
+    filter:drop-shadow(0 0 7px rgba(212,175,55,.72));
+}
+
+.menu-item.active span{
+    text-shadow:0 0 10px rgba(212,175,55,.28);
+}
+
+@keyframes pmxBarGlow{
+    0%,100%{
+        box-shadow:0 0 7px rgba(212,175,55,.42);
+    }
+    50%{
+        box-shadow:0 0 17px rgba(212,175,55,.92);
+    }
 }
 
 .menu-divider{
@@ -929,7 +413,13 @@ font-size:15px;
     width:100%;
     height:28px;
     margin:0;
-    background:linear-gradient(90deg,transparent,rgba(212,175,55,.60),transparent) center/100% 1px no-repeat;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.60),
+            transparent
+        ) center/100% 1px no-repeat;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -971,288 +461,113 @@ font-size:15px;
        OVERLAY
 ===================== */
 
-
 .overlay{
-
-
     position:fixed;
-
-
-
     inset:0;
-
-
-
     background:rgba(0,0,0,.75);
-
-
-
     z-index:15;
-
-
-
     display:none;
-
-
-
 }
-
-
-
-
-
 
 .overlay.active{
-
-
     display:block;
-
-
-
 }
-
-
-
-
-
-
-
 
 /* =====================
-       CONTEÃÂDO
+       CONTEÃDO
 ===================== */
 
-
 .content{
-
-
     height:calc(100vh - 225px);
-
-
-
     display:flex;
-
-
-
     justify-content:center;
-
-
-
     align-items:center;
-
-
-
     color:#555;
-
-
-
 }
+
 </style>
 
 </head>
 
-
 <body>
-
-
-
-
 
 <!-- LOADING -->
 
-
 <div class="loader" id="loader">
 
-
 <div class="logo-load">
-
 PMX
-
 </div>
-
 
 <div class="tagline">
-
 A NEW STANDARD
-
 </div>
 
-
 </div>
-
-
-
-
-
-
-
-
-
 
 <!-- HOME -->
 
-
 <div class="home" id="home">
-
-
-
-
-
 
 <!-- TOPO -->
 
-
 <div class="brand-bar">
 
-
 <div class="logo">
-
 PMX
-
 </div>
-
-
 
 <div class="brand-subtitle">
-
 A NEW STANDARD
-
 </div>
-
-
-
 
 <div class="brand-separator"></div>
 
-
-
 <div class="separator-star">
-
-Ã¢ÂÂ¦
-
+&#10022;
 </div>
 
-
-
 </div>
-
-
-
-
-
-
-
-
 
 <!-- BARRINHA -->
 
-
 <div class="navigation">
-
-
-
-
-
 
 <!-- MENU -->
 
-
 <div class="icon-btn" onclick="openMenu()">
-
-
 
 <svg viewBox="0 0 24 24">
 
-
 <line x1="3" y1="7" x2="21" y2="7"/>
-
-
 <line x1="3" y1="12" x2="21" y2="12"/>
-
-
 <line x1="3" y1="17" x2="21" y2="17"/>
-
 
 </svg>
 
-
-
 </div>
-
-
-
-
-
-
-
 
 <!-- CARRINHO -->
 
-
 <div class="icon-btn" onclick="openCart()">
-
-
 
 <svg viewBox="0 0 24 24">
 
-
 <path d="M3 4h2l2.5 11h10l3-8H7"/>
-
-
 <circle cx="9" cy="19" r="1.5"/>
-
-
 <circle cx="17" cy="19" r="1.5"/>
-
 
 </svg>
 
-
-
 </div>
 
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
 
 <div class="content">
-
-
 Em breve...
-
-
 </div>
 
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- MENU LATERAL -->
 
@@ -1262,334 +577,279 @@ Em breve...
 
 <div class="panel-line"></div>
 
-<div class="menu-item menu-enter active" data-page="inicio">
+<div class="menu-item menu-enter" data-page="inicio">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M3.5 10.5 12 3l8.5 7.5"/>
 <path d="M5.5 9.5V21h13V9.5"/>
 <path d="M9.5 21v-7h5v7"/>
+
 </svg>
-<span>InÃ­cio</span>
+
+<span>In&#237;cio</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="produtos">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M5 8.5h14l-1.2 12H6.2z"/>
 <path d="M8 8.5a4 4 0 0 1 8 0"/>
 <path d="M9 12h.01M15 12h.01"/>
+
 </svg>
+
 <span>Explorar produtos</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="categorias">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M4 4h8v8H4z"/>
 <path d="M12 12h8v8h-8z"/>
 <path d="M14 4h6v6h-6z"/>
 <path d="M4 14h6v6H4z"/>
+
 </svg>
+
 <span>Categorias</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="ofertas">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M13.5 2.5 5.5 13h6l-1 8.5L18.5 11h-6z"/>
+
 </svg>
+
 <span>Ofertas</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="favoritos">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M12 20.2S4 15.6 4 9.3A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8 3.3c0 6.3-8 10.9-8 10.9z"/>
+
 </svg>
+
 <span>Favoritos</span>
+
 </div>
 
-<div class="menu-divider"><span>â¦</span></div>
+<div class="menu-divider">
+
+<span>&#10022;</span>
+
+</div>
 
 <div class="menu-item menu-enter" data-page="conta">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <circle cx="12" cy="7.5" r="3.5"/>
 <path d="M4.5 21c.8-4.2 3.3-6.3 7.5-6.3s6.7 2.1 7.5 6.3"/>
+
 </svg>
+
 <span>Minha conta</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="suporte">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H11l-5 4v-4H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
 <path d="M7 9h10M7 12.5h7"/>
+
 </svg>
+
 <span>Suporte</span>
+
 </div>
 
 <div class="menu-item menu-enter" data-page="sobre">
+
 <svg viewBox="0 0 24 24" aria-hidden="true">
+
 <path d="M12 2.5 19.5 5v6.1c0 5-3 8.7-7.5 10.4-4.5-1.7-7.5-5.4-7.5-10.4V5z"/>
 <text x="12" y="13.5" text-anchor="middle">PMX</text>
+
 </svg>
+
 <span>Sobre a PMX</span>
-</div>
 
 </div>
 
+</div>
 
 <!-- CARRINHO -->
 
-
 <div class="panel cart-panel" id="cartPanel">
 
-
 <h2>
-
 CARRINHO
-
 </h2>
-
-
 
 <div class="panel-line"></div>
 
-
-
-
-
-
 <div class="empty-cart">
-
-
-
-
-
 
 <div class="cart-icon-box">
 
-
-
 <svg viewBox="0 0 24 24">
 
-
 <path d="M3 4h2l2.5 11h10l3-8H7"/>
-
-
 <circle cx="9" cy="19" r="1.5"/>
-
-
 <circle cx="17" cy="19" r="1.5"/>
-
 
 </svg>
 
-
-
-
 <div class="cart-alert">
-
 !
-
 </div>
 
-
-
 </div>
-
-
-
-
-
-
 
 <p>
-
 Nada por aqui ainda.
-
 </p>
-
-
 
 <p>
-
-Sua prÃÂ³xima escolha comeÃÂ§a agora.
-
+Sua prÃ³xima escolha comeÃ§a agora.
 </p>
-
-
-
-
-
-
-
 
 <button class="button">
-
 EXPLORAR PRODUTOS
-
 </button>
 
-
-
-
 </div>
 
-
-
 </div>
-
-
-
-
-
-
-
-
 
 <div class="overlay" id="overlay" onclick="closePanels()"></div>
 
-
-
-
-
-
-
-
-
 <script>
-
 
 // LOADING
 
-
 setTimeout(()=>{
-
 
 document.getElementById("loader").style.display="none";
 
-
 document.getElementById("home").style.display="block";
 
-
 },3000);
-
-
-
-
-
-
 
 const menuPanel =
 document.getElementById("menuPanel");
 
-
 const cartPanel =
 document.getElementById("cartPanel");
-
 
 const overlay =
 document.getElementById("overlay");
 
-
-
-
-
-
-
 function openMenu(){
 
-
 cartPanel.classList.remove("active");
-
 
 menuPanel.classList.add("active");
 
-
 overlay.classList.add("active");
 
-
 }
-
-
-
-
-
-
-
 
 function openCart(){
 
-
 menuPanel.classList.remove("active");
-
 
 cartPanel.classList.add("active");
 
-
 overlay.classList.add("active");
 
-
 }
-
-
-
-
-
-
 
 function closePanels(){
 
-
 menuPanel.classList.remove("active");
-
 
 cartPanel.classList.remove("active");
 
-
 overlay.classList.remove("active");
 
-
 }
-
-
-
-
-
-
 
 const items =
 document.querySelectorAll(".menu-item");
 
+/* MantÃ©m a opÃ§Ã£o escolhida mesmo depois de fechar e reabrir o menu. */
+
+const savedPage =
+localStorage.getItem("pmxSelectedPage") || "inicio";
+
+items.forEach(item=>{
+
+item.classList.toggle(
+"active",
+item.dataset.page === savedPage
+);
+
+});
+
+document.body.dataset.pmxPage = savedPage;
 
 items.forEach(item=>{
 
 item.addEventListener("click",()=>{
 
-items.forEach(i=>i.classList.remove("active"));
+items.forEach(i=>
+i.classList.remove("active")
+);
 
 item.classList.add("active");
 
-/* Prepara a prÃÂ³xima lÃÂ¢mina sem criar as pÃÂ¡ginas ainda. */
-const page = item.dataset.page;
-document.body.dataset.pmxPage = page;
+const page =
+item.dataset.page;
 
-window.dispatchEvent(
-new CustomEvent("pmx:navigate",{detail:{page}})
+localStorage.setItem(
+"pmxSelectedPage",
+page
 );
 
-/* Mostra o toque antes de fechar o menu automaticamente. */
+document.body.dataset.pmxPage =
+page;
+
+window.dispatchEvent(
+
+new CustomEvent(
+"pmx:navigate",
+{detail:{page}}
+)
+
+);
+
+/* Fecha o menu mantendo a opÃ§Ã£o selecionada. */
+
 setTimeout(()=>{
-    item.classList.remove("active");
-    closePanels();
-},120);
+
+closePanels();
+
+},180);
 
 });
 
 });
-
 
 </script>
-
-
-
-
-
 
 </body>
 
