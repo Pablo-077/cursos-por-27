@@ -247,10 +247,11 @@ body{
 ===================== */
 
 .menu-panel{
-    top:198px;
+    top:50%;
     left:0;
     width:min(54vw,250px);
-    height:calc(100vh - 198px);
+    height:auto;
+    max-height:calc(100vh - 100px);
     padding:28px 18px 24px;
     overflow-y:auto;
     overflow-x:hidden;
@@ -267,13 +268,13 @@ body{
     box-shadow:
         10px 0 35px rgba(0,0,0,.55),
         inset -1px 0 0 rgba(255,255,255,.05);
-    transform:translateX(-110%);
+    transform:translate(-110%,-50%);
     transition:transform .4s cubic-bezier(.22,.8,.25,1);
 }
 
 .menu-panel.active{
     left:0;
-    transform:translateX(0);
+    transform:translate(0,-50%);
 }
 
 .menu-panel h2{
