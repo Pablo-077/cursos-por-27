@@ -610,7 +610,7 @@ font-size:15px;
 
 
 /* =====================
-       PAINÃIS
+       PAINÃÂIS
 ===================== */
 
 
@@ -791,72 +791,161 @@ font-size:15px;
 
 
 /* =====================
-       MENU LATERAL - NOVA MECÃNICA
+       MENU LATERAL - NOVA MECÃÂNICA
+===================== */
+
+/* =====================
+       MENU LATERAL - VISUAL PMX
 ===================== */
 
 .menu-panel{
-    width:min(78vw,340px);
-    border-radius:0 18px 18px 0;
-    padding:35px 22px;
+    top:225px;
+    left:0;
+    width:min(54vw,250px);
+    height:calc(100vh - 225px);
+    padding:28px 18px 24px;
     overflow-y:auto;
+    overflow-x:hidden;
+    border-radius:0 18px 18px 0;
+    border:1px solid rgba(255,255,255,.16);
+    border-left:0;
+    background:
+        linear-gradient(135deg,rgba(18,18,18,.98),rgba(5,5,5,.985) 55%,rgba(12,12,12,.98));
+    box-shadow:
+        10px 0 35px rgba(0,0,0,.55),
+        inset -1px 0 0 rgba(255,255,255,.05);
+    transform:translateX(-110%);
+    transition:transform .4s cubic-bezier(.22,.8,.25,1);
+}
+
+.menu-panel.active{
+    left:0;
+    transform:translateX(0);
 }
 
 .menu-panel h2{
     font-size:22px;
-    margin-bottom:22px;
+    font-weight:700;
+    letter-spacing:7px;
+    margin:0 0 18px;
+    padding-left:7px;
+    text-align:center;
+    color:var(--gold);
+    text-shadow:0 0 12px rgba(212,175,55,.18);
+}
+
+.menu-panel .panel-line{
+    height:1px;
+    margin:0 0 12px;
+    background:linear-gradient(90deg,transparent,rgba(212,175,55,.20),transparent);
 }
 
 .menu-item{
+    position:relative;
     display:flex;
     align-items:center;
-    gap:16px;
+    gap:20px;
     width:100%;
-    min-height:52px;
-    padding:10px 12px;
-    margin-bottom:6px;
-    color:white;
-    border-radius:12px;
+    min-height:66px;
+    padding:0 10px;
+    margin:0;
+    color:#f4f4f4;
+    border-radius:0;
+    border-bottom:1px solid rgba(255,255,255,.055);
     cursor:pointer;
     user-select:none;
     -webkit-tap-highlight-color:transparent;
-    transition:color .3s ease, transform .3s ease, background .3s ease, opacity .35s ease;
+    transition:color .25s ease, background .25s ease, opacity .35s ease;
+}
+
+.menu-item[data-page="favoritos"],
+.menu-item[data-page="sobre"]{
+    border-bottom:0;
 }
 
 .menu-item svg{
-    width:25px;
-    height:25px;
-    flex:0 0 25px;
-    stroke:currentColor;
+    width:27px;
+    height:27px;
+    flex:0 0 27px;
+    display:block;
+    stroke:var(--gold);
     fill:none;
-    stroke-width:1.8;
+    stroke-width:1.9;
     stroke-linecap:round;
     stroke-linejoin:round;
-    transition:transform .3s ease, filter .3s ease;
+    transition:transform .25s ease, filter .25s ease;
+}
+
+.menu-item svg text{
+    fill:var(--gold);
+    stroke:none;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:5.5px;
+    font-weight:700;
+    letter-spacing:.3px;
 }
 
 .menu-item span{
     font-size:16px;
-    letter-spacing:.2px;
+    font-weight:400;
+    line-height:1.2;
+    letter-spacing:0;
+    white-space:nowrap;
+}
+
+.menu-item::before{
+    content:"";
+    position:absolute;
+    left:-18px;
+    top:12px;
+    bottom:12px;
+    width:5px;
+    border-radius:0 2px 2px 0;
+    background:var(--gold);
+    box-shadow:0 0 16px rgba(212,175,55,.75);
+    opacity:0;
+    transition:opacity .25s ease;
 }
 
 .menu-item:active,
 .menu-item.active{
     color:var(--gold);
-    transform:translateX(8px);
-    background:rgba(212,175,55,.06);
+    background:linear-gradient(90deg,rgba(212,175,55,.09),transparent 78%);
+    transform:none;
+}
+
+.menu-item.active::before{
+    opacity:1;
 }
 
 .menu-item:active svg,
 .menu-item.active svg{
-    transform:translateY(-2px) scale(.96);
-    filter:drop-shadow(0 0 5px rgba(212,175,55,.45));
+    transform:scale(1.04);
+    filter:drop-shadow(0 0 6px rgba(212,175,55,.55));
 }
 
 .menu-divider{
+    position:relative;
     width:100%;
-    height:1px;
-    margin:14px 0;
-    background:linear-gradient(90deg,transparent,rgba(212,175,55,.45),transparent);
+    height:28px;
+    margin:0;
+    background:linear-gradient(90deg,transparent,rgba(212,175,55,.60),transparent) center/100% 1px no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-divider span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:28px;
+    height:28px;
+    background:#080808;
+    color:var(--gold);
+    font-size:15px;
+    line-height:1;
+    text-shadow:0 0 8px rgba(212,175,55,.45);
 }
 
 .menu-item.menu-enter{
@@ -930,7 +1019,7 @@ font-size:15px;
 
 
 /* =====================
-       CONTEÃDO
+       CONTEÃÂDO
 ===================== */
 
 
@@ -1039,7 +1128,7 @@ A NEW STANDARD
 
 <div class="separator-star">
 
-â¦
+Ã¢ÂÂ¦
 
 </div>
 
@@ -1167,92 +1256,81 @@ Em breve...
 
 <!-- MENU LATERAL -->
 
-
 <div class="panel menu-panel" id="menuPanel">
 
 <h2>PMX</h2>
 
 <div class="panel-line"></div>
 
-
-<div class="menu-item menu-enter" data-page="inicio">
+<div class="menu-item menu-enter active" data-page="inicio">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M3 10.5 12 3l9 7.5"/>
-<path d="M5 9.5V21h14V9.5"/>
-<path d="M9 21v-7h6v7"/>
+<path d="M3.5 10.5 12 3l8.5 7.5"/>
+<path d="M5.5 9.5V21h13V9.5"/>
+<path d="M9.5 21v-7h5v7"/>
 </svg>
 <span>InÃ­cio</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="produtos">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 7h16l-1.5 13h-13z"/>
-<path d="M8 7a4 4 0 0 1 8 0"/>
-<path d="M9 11h.01M15 11h.01"/>
+<path d="M5 8.5h14l-1.2 12H6.2z"/>
+<path d="M8 8.5a4 4 0 0 1 8 0"/>
+<path d="M9 12h.01M15 12h.01"/>
 </svg>
 <span>Explorar produtos</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="categorias">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
+<path d="M4 4h8v8H4z"/>
+<path d="M12 12h8v8h-8z"/>
+<path d="M14 4h6v6h-6z"/>
+<path d="M4 14h6v6H4z"/>
 </svg>
 <span>Categorias</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="ofertas">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M13 2 5 13h6l-1 9 8-11h-6z"/>
+<path d="M13.5 2.5 5.5 13h6l-1 8.5L18.5 11h-6z"/>
 </svg>
 <span>Ofertas</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="favoritos">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M20.8 8.8c0 5.5-8.8 10.4-8.8 10.4S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6z"/>
+<path d="M12 20.2S4 15.6 4 9.3A4.7 4.7 0 0 1 12 6a4.7 4.7 0 0 1 8 3.3c0 6.3-8 10.9-8 10.9z"/>
 </svg>
 <span>Favoritos</span>
 </div>
 
-
-<div class="menu-divider"></div>
-
+<div class="menu-divider"><span>â¦</span></div>
 
 <div class="menu-item menu-enter" data-page="conta">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="8" r="3.5"/>
-<path d="M4.5 21c.7-4 3.2-6 7.5-6s6.8 2 7.5 6"/>
+<circle cx="12" cy="7.5" r="3.5"/>
+<path d="M4.5 21c.8-4.2 3.3-6.3 7.5-6.3s6.7 2.1 7.5 6.3"/>
 </svg>
 <span>Minha conta</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="suporte">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v7A3.5 3.5 0 0 1 16.5 16H10l-5 4v-4.5a3.5 3.5 0 0 1-1-2.5z"/>
-<path d="M8 8h8M8 11.5h5"/>
+<path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H11l-5 4v-4H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+<path d="M7 9h10M7 12.5h7"/>
 </svg>
 <span>Suporte</span>
 </div>
 
-
 <div class="menu-item menu-enter" data-page="sobre">
 <svg viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="12" r="9"/>
-<path d="M12 10v6"/>
-<path d="M12 7h.01"/>
+<path d="M12 2.5 19.5 5v6.1c0 5-3 8.7-7.5 10.4-4.5-1.7-7.5-5.4-7.5-10.4V5z"/>
+<text x="12" y="13.5" text-anchor="middle">PMX</text>
 </svg>
 <span>Sobre a PMX</span>
 </div>
 
-
 </div>
-
-
 
 
 <!-- CARRINHO -->
@@ -1330,7 +1408,7 @@ Nada por aqui ainda.
 
 <p>
 
-Sua prÃ³xima escolha comeÃ§a agora.
+Sua prÃÂ³xima escolha comeÃÂ§a agora.
 
 </p>
 
@@ -1487,7 +1565,7 @@ items.forEach(i=>i.classList.remove("active"));
 
 item.classList.add("active");
 
-/* Prepara a prÃ³xima lÃ¢mina sem criar as pÃ¡ginas ainda. */
+/* Prepara a prÃÂ³xima lÃÂ¢mina sem criar as pÃÂ¡ginas ainda. */
 const page = item.dataset.page;
 document.body.dataset.pmxPage = page;
 
